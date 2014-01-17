@@ -29,7 +29,7 @@ public final class R {
         public static final int editTextConfessions=0x7f080004;
         public static final int pager=0x7f080000;
         public static final int submitCompliment=0x7f080003;
-        public static final int uploadPictureCompliments=0x7f080002;
+        public static final int uploadPictureCompliment=0x7f080002;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
