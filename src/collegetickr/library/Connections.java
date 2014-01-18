@@ -14,11 +14,18 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 
 public class Connections {
-	private static final String CONFESSIONURL = "http://collegetickr.com/ucsd/confessions";
 
-	public boolean postConfession(String comment, String picture) {
-		return doPost(CONFESSIONURL, "content[content]", comment,
-				"content[image]", picture);
+	public boolean postConfession(String comment, String picture, String activityiD) {
+		String url = "";
+		if(activityiD.equals(ActivityIdentifier.complimentsID)){
+			url = ActivityIdentifier.COMPLIMENTSURL;
+		} else if(activityiD.equals(ActivityIdentifier.confessionsID)){
+			url = ActivityIdentifier.CONFESSIONSURL;
+		} else{
+			return false; //we had an error somewhere
+		}
+		return doPost(url, ActivityIdentifier.commentPostHTTP, comment,
+				ActivityIdentifier.picturePostHTTP, picture);
 	}
 
 	private boolean doPost(String url, String commentiD, String comment,

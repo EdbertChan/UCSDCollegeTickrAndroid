@@ -38,12 +38,12 @@ public abstract class ApplicationBaseClass extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		initializeValues();
-		View rootView = inflater.inflate(rootLayout,
-				container, false);
-		EditText edit_text = (EditText) rootView
-				.findViewById(R.id.editTextCompliments);
+		View rootView = inflater.inflate(rootLayout, container, false);
+
+		final EditText edit_text = (EditText) rootView.findViewById(editText);
+
 		Button buttonLoadImage = (Button) rootView
-				.findViewById(R.id.uploadPictureCompliment);
+				.findViewById(uploadPictureButton);
 		buttonLoadImage.setOnClickListener(new View.OnClickListener() {
 
 			@Override
@@ -56,17 +56,17 @@ public abstract class ApplicationBaseClass extends Fragment {
 				startActivityForResult(i, RESULT_LOAD_IMAGE);
 			}
 		});
-		Button buttonSubmit = (Button) rootView
-				.findViewById(R.id.submitCompliment);
+		Button buttonSubmit = (Button) rootView.findViewById(submitButton);
 		buttonSubmit.setOnClickListener(new View.OnClickListener() {
 
 			@Override
 			public void onClick(View arg0) {
 				// execute the async
-				PostDataWebTask newPostTask = new PostDataWebTask();
+				PostDataWebTask newPostTask = new PostDataWebTask(edit_text.getText().toString(),
+						selectedImagePath, appIdentifier);
 				// we want to pass in an enum of what activity (compliment/
 				// whatever)
-				newPostTask.execute("arg1", "arg2", this);
+				newPostTask.execute();
 
 			}
 		});
@@ -83,7 +83,7 @@ public abstract class ApplicationBaseClass extends Fragment {
 			selectedImagePath = selectedImageUri.getPath();
 			// note: might want to change icon to let user know we have
 			// selected?
-
+			// set to change image and display small icon underneath?
 		}
 	}
 }
