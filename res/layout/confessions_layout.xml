@@ -1,16 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
->
+   >
     
 <EditText
         android:id="@+id/editTextConfessions"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" 
-        android:hint="haiii">
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".50" 
+>
+ 		
         <requestFocus />
-    </EditText>
-
-</RelativeLayout>
+</EditText>    
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight=".50">
+    
+    <Button android:id="@+id/uploadPictureConfession"
+    android:layout_width="0dp"
+    android:layout_weight=".5"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:text="Upload Picture" />
+    
+    <Button android:id="@+id/submitConfession"
+  android:layout_width="0dp"
+    android:layout_weight=".5"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:text="Submit Confession" />
+</LinearLayout>
+</LinearLayout>
