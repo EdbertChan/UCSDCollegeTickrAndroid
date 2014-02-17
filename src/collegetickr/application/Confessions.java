@@ -1,10 +1,8 @@
 package collegetickr.application;
 
-import info.androidhive.tabsswipe.R;
+import com.example.android.navigationdrawerexample.R;
 
-
-
-public class Confessions extends ApplicationBaseClass {
+public class Confessions extends ComplimentsConfessionsBaseClass {
 	int rootLayout = R.layout.confessions_layout,
 			editText = R.id.editTextConfessions,
 			uploadPictureButton = R.id.uploadPictureConfession,

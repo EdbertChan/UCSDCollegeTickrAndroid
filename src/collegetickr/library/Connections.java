@@ -12,20 +12,20 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
-
+import collegetickr.library.*;
 public class Connections {
 
 	public boolean postConfession(String comment, String picture, String activityiD) {
 		String url = "";
-		if(activityiD.equals(ActivityIdentifier.complimentsID)){
-			url = ActivityIdentifier.COMPLIMENTSURL;
-		} else if(activityiD.equals(ActivityIdentifier.confessionsID)){
-			url = ActivityIdentifier.CONFESSIONSURL;
+		if(activityiD.equals(IdentifiersList.complimentsID)){
+			url = IdentifiersList.COMPLIMENTSURL;
+		} else if(activityiD.equals(IdentifiersList.confessionsID)){
+			url = IdentifiersList.CONFESSIONSURL;
 		} else{
 			return false; //we had an error somewhere
 		}
-		return doPost(url, ActivityIdentifier.commentPostHTTP, comment,
-				ActivityIdentifier.picturePostHTTP, picture);
+		return doPost(url, IdentifiersList.commentPostHTTP, comment,
+				IdentifiersList.picturePostHTTP, picture);
 	}
 
 	private boolean doPost(String url, String commentiD, String comment,
@@ -41,7 +41,7 @@ public class Connections {
 			// nameValuePairs.add(new BasicNameValuePair(pictureiD, picture));
 			// note: octet-stream. may need further modification
 			// authenticity_token also may be neeed?
-
+			//this is a basic name value for submit
 			nameValuePairs.add(new BasicNameValuePair("commit",
 					"Submit Content"));
 			httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));

@@ -6,10 +6,12 @@
    >
     
 <EditText
+    android:gravity="top"
         android:id="@+id/editTextConfessions"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_weight=".50" 
+        android:hint="@string/editTextHint"
 >
  		
         <requestFocus />
@@ -17,7 +19,7 @@
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="0dp"
-    android:layout_weight=".50">
+    android:layout_weight=".25">
     
     <Button android:id="@+id/uploadPictureConfession"
     android:layout_width="0dp"
@@ -33,4 +35,9 @@
     android:layout_alignParentBottom="true"
     android:text="Submit Confession" />
 </LinearLayout>
+<Button android:id="@+id/viewConfession"
+  android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:text="View Confessions" />
 </LinearLayout>

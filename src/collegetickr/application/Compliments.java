@@ -1,10 +1,9 @@
 package collegetickr.application;
 
-import info.androidhive.tabsswipe.R;
+import com.example.android.navigationdrawerexample.R;
 
 
-
-public class Compliments extends ApplicationBaseClass {
+public class Compliments extends ComplimentsConfessionsBaseClass {
 	int rootLayout = R.layout.compliments_layout,
 			editText = R.id.editTextCompliments,
 			uploadPictureButton = R.id.uploadPictureCompliment,

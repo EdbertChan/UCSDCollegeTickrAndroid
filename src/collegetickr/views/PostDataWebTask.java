@@ -2,8 +2,8 @@ package collegetickr.views;
 
 import java.io.File;
 
-import collegetickr.application.ApplicationBaseClass;
-import collegetickr.library.ActivityIdentifier;
+import collegetickr.application.ComplimentsConfessionsBaseClass;
+import collegetickr.library.IdentifiersList;
 import android.app.Fragment;
 import android.os.AsyncTask;
 import android.util.Log;
@@ -21,7 +21,7 @@ public class PostDataWebTask extends AsyncTask<Object, Void, String>{
     @Override
     protected String doInBackground(Object...params) {        
             if(flag == false){
-            	return ActivityIdentifier.notExecutingiD;
+            	return IdentifiersList.notExecutingiD;
             }
        
             //get response
@@ -44,12 +44,12 @@ public class PostDataWebTask extends AsyncTask<Object, Void, String>{
 
             if(comment.equals("") || comment == null){
             	flag = false;
-            	msgToUser = ActivityIdentifier.misingComment;
+            	msgToUser = IdentifiersList.misingComment;
             	return;
             }
             if(!pathToImg.equals("") && !(new File(pathToImg).exists())){
             	flag = false;
-            	msgToUser = ActivityIdentifier.invalidPicture;
+            	msgToUser = IdentifiersList.invalidPicture;
             	return;
             }
             flag = true;
