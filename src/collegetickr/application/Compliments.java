@@ -1,7 +1,5 @@
 package collegetickr.application;
 
-import com.example.android.navigationdrawerexample.R;
-
 
 public class Compliments extends ComplimentsConfessionsBaseClass {
 	int rootLayout = R.layout.compliments_layout,

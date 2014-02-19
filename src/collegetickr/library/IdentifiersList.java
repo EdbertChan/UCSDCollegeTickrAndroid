@@ -1,11 +1,24 @@
 package collegetickr.library;
 public class  IdentifiersList{
-	public static final String guardianID = "ucsd guardian";
-	public static final String TVID = "triton tv";
-	public static final String complimentsID = "ucsd compliment";
-	public static final String confessionsID = "ucsd confession";
-	public static final String dealsID = "ucsd deals";
-	public static final String jobsID = "ucsd jobs & internships";
+	public static final String signupID = "Signup";
+	public static final String loginID = "Login";
+	public static final String guardianID = "UCSD Guardian";
+	public static final String TVID = "Triton TV";
+	public static final String complimentsID = "UCSD compliment";
+	public static final String confessionsID = "UCSD confession";
+	public static final String dealsID = "UCSD deals";
+	public static final String jobsID = "UCSD jobs & internships";
+	
+	
+	public static final int guardianNumericID = 101;
+	public static final int TVNumericID = 102;
+	public static final int complimentsNumericID = 103;
+	public static final int confessionsNumericID = 104;
+	public static final int dealsNumericID = 105;
+	public static final int jobsNumericID = 106;
+	public static final int signupNumericID = 107;
+	public static final int loginNumericID = 108;
+
 	
 	public static final String SELECTIONID = "selection id"; 
 	
