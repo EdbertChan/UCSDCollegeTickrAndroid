@@ -8,8 +8,14 @@
 package collegetickr.application;
 
 public final class R {
+    public static final class anim {
+        public static final int slide_in_left=0x7f040000;
+        public static final int slide_in_right=0x7f040001;
+        public static final int slide_out_left=0x7f040002;
+        public static final int slide_out_right=0x7f040003;
+    }
     public static final class array {
-        public static final int collegetickr_applications_list=0x7f0b0000;
+        public static final int collegetickr_applications_list=0x7f0c0000;
     }
     public static final class attr {
         /**  A drawable to use as the background of the Header View 
@@ -172,17 +178,17 @@ containing a value of this type.
         public static final int spb_stroke_width=0x7f010002;
     }
     public static final class bool {
-        public static final int spb_default_mirror_mode=0x7f090001;
-        public static final int spb_default_reversed=0x7f090000;
+        public static final int spb_default_mirror_mode=0x7f0a0001;
+        public static final int spb_default_reversed=0x7f0a0000;
     }
     public static final class color {
-        public static final int default_progress_bar_color=0x7f050001;
-        public static final int spb_default_color=0x7f050000;
+        public static final int default_progress_bar_color=0x7f060001;
+        public static final int spb_default_color=0x7f060000;
     }
     public static final class dimen {
-        public static final int ptr_progress_bar_stroke_width=0x7f060002;
-        public static final int spb_default_stroke_separator_length=0x7f060000;
-        public static final int spb_default_stroke_width=0x7f060001;
+        public static final int ptr_progress_bar_stroke_width=0x7f070002;
+        public static final int spb_default_stroke_separator_length=0x7f070000;
+        public static final int spb_default_stroke_width=0x7f070001;
     }
     public static final class drawable {
         public static final int action_search=0x7f020000;
@@ -199,43 +205,43 @@ containing a value of this type.
         public static final int venus=0x7f02000b;
     }
     public static final class id {
-        public static final int action_listview=0x7f04000e;
-        public static final int action_scrollview=0x7f040010;
-        public static final int action_websearch=0x7f040020;
-        public static final int action_webview=0x7f04000f;
-        public static final int content_frame=0x7f04000c;
-        public static final int drawer_layout=0x7f04000b;
-        public static final int editTextCompliments=0x7f040011;
-        public static final int editTextConfessions=0x7f040015;
-        public static final int image=0x7f040019;
-        public static final int inside=0x7f040004;
-        public static final int left_drawer=0x7f04000d;
-        public static final int navmenuitem_icon=0x7f04001a;
-        public static final int navmenuitem_label=0x7f04001b;
-        public static final int navmenusection_label=0x7f04001c;
-        public static final int outside=0x7f040005;
-        public static final int post_date=0x7f04001f;
-        public static final int post_desc=0x7f04001e;
-        public static final int post_title=0x7f04001d;
-        public static final int ptr_content=0x7f040006;
-        public static final int ptr_layout=0x7f040009;
-        public static final int ptr_listview=0x7f04000a;
-        public static final int ptr_progress=0x7f040008;
-        public static final int ptr_text=0x7f040007;
-        public static final int spb_interpolator_accelerate=0x7f040000;
-        public static final int spb_interpolator_acceleratedecelerate=0x7f040002;
-        public static final int spb_interpolator_decelerate=0x7f040003;
-        public static final int spb_interpolator_linear=0x7f040001;
-        public static final int submitCompliment=0x7f040013;
-        public static final int submitConfession=0x7f040017;
-        public static final int uploadPictureCompliment=0x7f040012;
-        public static final int uploadPictureConfession=0x7f040016;
-        public static final int viewCompliments=0x7f040014;
-        public static final int viewConfession=0x7f040018;
+        public static final int action_listview=0x7f05000f;
+        public static final int action_scrollview=0x7f050011;
+        public static final int action_websearch=0x7f050020;
+        public static final int action_webview=0x7f050010;
+        public static final int content_frame=0x7f05000d;
+        public static final int drawer_layout=0x7f05000b;
+        public static final int editTextCompliments=0x7f050012;
+        public static final int editTextConfessions=0x7f050016;
+        public static final int inside=0x7f050004;
+        public static final int left_drawer=0x7f05000e;
+        public static final int navmenuitem_icon=0x7f05001d;
+        public static final int navmenuitem_label=0x7f05001e;
+        public static final int navmenusection_label=0x7f05001f;
+        public static final int outside=0x7f050005;
+        public static final int pager=0x7f05000c;
+        public static final int ptr_content=0x7f050006;
+        public static final int ptr_layout=0x7f050009;
+        public static final int ptr_listview=0x7f05000a;
+        public static final int ptr_progress=0x7f050008;
+        public static final int ptr_text=0x7f050007;
+        public static final int spb_interpolator_accelerate=0x7f050000;
+        public static final int spb_interpolator_acceleratedecelerate=0x7f050002;
+        public static final int spb_interpolator_decelerate=0x7f050003;
+        public static final int spb_interpolator_linear=0x7f050001;
+        public static final int submitCompliment=0x7f050014;
+        public static final int submitConfession=0x7f050018;
+        public static final int tutorial_date=0x7f05001c;
+        public static final int tutorial_desc=0x7f05001b;
+        public static final int tutorial_title=0x7f05001a;
+        public static final int uploadPictureCompliment=0x7f050013;
+        public static final int uploadPictureConfession=0x7f050017;
+        public static final int viewCompliments=0x7f050015;
+        public static final int viewConfession=0x7f050019;
     }
     public static final class integer {
-        public static final int spb_default_interpolator=0x7f070001;
-        public static final int spb_default_sections_count=0x7f070000;
+        public static final int spb_default_interpolator=0x7f080001;
+        public static final int spb_default_sections_count=0x7f080000;
     }
     public static final class layout {
         public static final int activity_list_view=0x7f030000;
@@ -243,34 +249,33 @@ containing a value of this type.
         public static final int base_menu=0x7f030002;
         public static final int compliments_layout=0x7f030003;
         public static final int confessions_layout=0x7f030004;
-        public static final int default_header=0x7f030005;
-        public static final int drawer_list_item=0x7f030006;
-        public static final int fragment_planet=0x7f030007;
-        public static final int navdrawer_item=0x7f030008;
-        public static final int navdrawer_section=0x7f030009;
-        public static final int post_list_item=0x7f03000a;
-        public static final int pull_to_refresh=0x7f03000b;
+        public static final int confessions_scafoold_layout=0x7f030005;
+        public static final int default_header=0x7f030006;
+        public static final int drawer_list_item=0x7f030007;
+        public static final int listview_each_item=0x7f030008;
+        public static final int navdrawer_item=0x7f030009;
+        public static final int navdrawer_section=0x7f03000a;
     }
     public static final class menu {
-        public static final int base_menu=0x7f0c0000;
-        public static final int main=0x7f0c0001;
+        public static final int base_menu=0x7f0d0000;
+        public static final int main=0x7f0d0001;
     }
     public static final class string {
-        public static final int action_websearch=0x7f080008;
-        public static final int app_name=0x7f080004;
-        public static final int app_not_available=0x7f080009;
-        public static final int drawer_close=0x7f080007;
-        public static final int drawer_open=0x7f080006;
-        public static final int editTextHint=0x7f080005;
-        public static final int pull_to_refresh_pull_label=0x7f080001;
-        public static final int pull_to_refresh_refreshing_label=0x7f080003;
-        public static final int pull_to_refresh_release_label=0x7f080002;
-        public static final int spb_default_speed=0x7f080000;
+        public static final int action_websearch=0x7f090008;
+        public static final int app_name=0x7f090004;
+        public static final int app_not_available=0x7f090009;
+        public static final int drawer_close=0x7f090007;
+        public static final int drawer_open=0x7f090006;
+        public static final int editTextHint=0x7f090005;
+        public static final int pull_to_refresh_pull_label=0x7f090001;
+        public static final int pull_to_refresh_refreshing_label=0x7f090003;
+        public static final int pull_to_refresh_release_label=0x7f090002;
+        public static final int spb_default_speed=0x7f090000;
     }
     public static final class style {
-        public static final int SmoothProgressBar=0x7f0a0001;
-        public static final int Theme_SmoothProgressBarDefaults=0x7f0a0000;
-        public static final int Widget_ProgressBar_PullToRefresh=0x7f0a0002;
+        public static final int SmoothProgressBar=0x7f0b0001;
+        public static final int Theme_SmoothProgressBarDefaults=0x7f0b0000;
+        public static final int Widget_ProgressBar_PullToRefresh=0x7f0b0002;
     }
     public static final class styleable {
         /** Attributes that can be used with a PullToRefreshHeader.

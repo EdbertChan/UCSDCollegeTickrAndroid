@@ -8,6 +8,7 @@ import collegetickr.application.DrawerItems.NavDrawerAdapter;
 import collegetickr.application.DrawerItems.NavDrawerItem;
 import collegetickr.application.DrawerItems.NavMenuItem;
 import collegetickr.application.DrawerItems.NavMenuSection;
+
 import collegetickr.library.IdentifiersList;
 
 public class MainActivity extends AbstractNavDrawerActivity {
@@ -52,11 +53,11 @@ public class MainActivity extends AbstractNavDrawerActivity {
     protected void onNavItemSelected(int id) {
     	//need to work on these. Just match the ID to the activity.
         switch ((int)id) {
-        case IdentifiersList.guardianNumericID:
-            getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new PostsViewerBaseClass()).commit();
+        case IdentifiersList.complimentsNumericID:
+            getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new Compliments()).commit();
             break;
-        case 102:
-            getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new Confessions()).commit();
+        case IdentifiersList.confessionsNumericID:
+            getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new ConfessionsScaffoldingFragment()).commit();
             break;
         }
     }

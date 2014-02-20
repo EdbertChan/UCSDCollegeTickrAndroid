@@ -13,6 +13,7 @@ import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -39,6 +40,7 @@ public abstract class ComplimentsConfessionsBaseClass extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		initializeValues();
+		
 		View rootView = inflater.inflate(rootLayout, container, false);
 
 		final EditText edit_text = (EditText) rootView.findViewById(editText);
@@ -87,4 +89,5 @@ public abstract class ComplimentsConfessionsBaseClass extends Fragment {
 			// set to change image and display small icon underneath?
 		}
 	}
+
 }

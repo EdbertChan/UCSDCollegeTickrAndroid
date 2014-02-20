@@ -3,7 +3,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content"
-
+    
     android:paddingBottom="32dp"
     android:paddingTop="20dp"
     android:paddingLeft="20dp"
@@ -17,10 +17,10 @@
     <ImageView
         android:layout_width="54dp"
         android:layout_height="54dp"
-/>
+        />
 
     <TextView
-        android:id="@+id/post_title"
+        android:id="@+id/tutorial_title"
         android:layout_width="match_parent"
         android:layout_height="54dp"
         android:textColor="#FFFFFF"
@@ -32,22 +32,22 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/post_desc"
+        android:id="@+id/tutorial_desc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="14sp"
         android:gravity="center_vertical"
-        tools:text="Unfortunately, PreferenceFragmentCompat is missing in android support library. In this post, i show you a possible implementation that you can use until Google makes its own.">
+        tools:text="Unfortunately, PreferenceFragmentCompat is missing in android support library. In this tutorial, i show you a possible implementation that you can use until Google makes its own.">
     </TextView>
 
     <TextView
-        android:id="@+id/post_date"
+        android:id="@+id/tutorial_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="14sp"
         android:gravity="right|center_vertical"
         android:textStyle="bold|italic"
-        tools:text="Oct. 18 2013">
+        tools:text="18 Oct. 2013">
     </TextView>
 
 </LinearLayout>
