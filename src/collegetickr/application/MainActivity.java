@@ -51,10 +51,10 @@ public class MainActivity extends AbstractNavDrawerActivity {
     
     @Override
     protected void onNavItemSelected(int id) {
-    	//need to work on these. Just match the ID to the activity.
+    	//need to work on these. Just match the ID to the activity we want.
         switch ((int)id) {
         case IdentifiersList.complimentsNumericID:
-            getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new Compliments()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new PostFragment()).commit();
             break;
         case IdentifiersList.confessionsNumericID:
             getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new ConfessionsScaffoldingFragment()).commit();

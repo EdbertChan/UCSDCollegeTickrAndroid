@@ -1,13 +1,14 @@
+/* Manages ID for the controllers and fragments in Main Activity*/
 package collegetickr.library;
 public class  IdentifiersList{
 	public static final String signupID = "Signup";
 	public static final String loginID = "Login";
 	public static final String guardianID = "UCSD Guardian";
 	public static final String TVID = "Triton TV";
-	public static final String complimentsID = "UCSD compliment";
-	public static final String confessionsID = "UCSD confession";
-	public static final String dealsID = "UCSD deals";
-	public static final String jobsID = "UCSD jobs & internships";
+	public static final String complimentsID = "UCSD Compliment";
+	public static final String confessionsID = "UCSD Confession";
+	public static final String dealsID = "UCSD Deals";
+	public static final String jobsID = "UCSD Jobs & Internships";
 	
 	
 	public static final int guardianNumericID = 101;

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="10dp">
+     <CustomScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+               android:id="@+id/postScrollView">
+            <LinearLayout 
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical"
+                  >
+                <ImageView 
+           android:id="@+id/postIcon"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+            android:src="@drawable/post_icon" 
+           />
+                <TextView
+                    android:id="@+id/postAuthor"
+        android:text="Post Author"
+         android:layout_width="match_parent"
+           android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/postContent"
+        android:text="@string/test"
+         android:layout_width="match_parent"
+           android:layout_height="wrap_content" />
+                      <LinearLayout 
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="horizontal"
+                  android:gravity="bottom"
+                  
+                  android:layout_alignParentBottom="true"
+                  >
+                  <ImageView 
+           android:id="@+id/postUpVote"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:src="@drawable/up_vote" 
+           />
+                  <ImageView 
+           android:id="@+id/postDownVote"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:src="@drawable/down_vote" 
+           />
+                  <ImageView 
+           android:id="@+id/postComment"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           />
+                   <TextView
+                    android:id="@+id/postScore"
+        android:text="Post Score"
+         android:layout_width="match_parent"
+           android:layout_height="wrap_content" />
+                   
+                  </LinearLayout>
+            </LinearLayout>
+      </CustomScrollView>
+
+</LinearLayout>

@@ -12,6 +12,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
+import android.widget.Button;
 import android.widget.ViewFlipper;
 
 
@@ -20,10 +21,11 @@ public class Confessions extends ComplimentsConfessionsBaseClass {
 			editText = R.id.editTextConfessions,
 			uploadPictureButton = R.id.uploadPictureConfession,
 			submitButton = R.id.submitConfession;
-	
+
 	@Override
 	protected void initializeValues() {
 		super.initializeValues(rootLayout, editText, uploadPictureButton, submitButton, appIdentifier);
+		
 	}
 	
 

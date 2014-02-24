@@ -192,22 +192,17 @@ containing a value of this type.
     }
     public static final class drawable {
         public static final int action_search=0x7f020000;
-        public static final int drawer_shadow=0x7f020001;
-        public static final int earth=0x7f020002;
+        public static final int down_vote=0x7f020001;
+        public static final int drawer_shadow=0x7f020002;
         public static final int ic_drawer=0x7f020003;
         public static final int ic_launcher=0x7f020004;
-        public static final int jupiter=0x7f020005;
-        public static final int mars=0x7f020006;
-        public static final int mercury=0x7f020007;
-        public static final int neptune=0x7f020008;
-        public static final int saturn=0x7f020009;
-        public static final int uranus=0x7f02000a;
-        public static final int venus=0x7f02000b;
+        public static final int post_icon=0x7f020005;
+        public static final int up_vote=0x7f020006;
     }
     public static final class id {
         public static final int action_listview=0x7f05000f;
         public static final int action_scrollview=0x7f050011;
-        public static final int action_websearch=0x7f050020;
+        public static final int action_websearch=0x7f050028;
         public static final int action_webview=0x7f050010;
         public static final int content_frame=0x7f05000d;
         public static final int drawer_layout=0x7f05000b;
@@ -220,6 +215,14 @@ containing a value of this type.
         public static final int navmenusection_label=0x7f05001f;
         public static final int outside=0x7f050005;
         public static final int pager=0x7f05000c;
+        public static final int postAuthor=0x7f050022;
+        public static final int postComment=0x7f050026;
+        public static final int postContent=0x7f050023;
+        public static final int postDownVote=0x7f050025;
+        public static final int postIcon=0x7f050021;
+        public static final int postScore=0x7f050027;
+        public static final int postScrollView=0x7f050020;
+        public static final int postUpVote=0x7f050024;
         public static final int ptr_content=0x7f050006;
         public static final int ptr_layout=0x7f050009;
         public static final int ptr_listview=0x7f05000a;
@@ -255,22 +258,24 @@ containing a value of this type.
         public static final int listview_each_item=0x7f030008;
         public static final int navdrawer_item=0x7f030009;
         public static final int navdrawer_section=0x7f03000a;
+        public static final int post_layout=0x7f03000b;
     }
     public static final class menu {
         public static final int base_menu=0x7f0d0000;
         public static final int main=0x7f0d0001;
     }
     public static final class string {
-        public static final int action_websearch=0x7f090008;
+        public static final int action_websearch=0x7f090009;
         public static final int app_name=0x7f090004;
-        public static final int app_not_available=0x7f090009;
-        public static final int drawer_close=0x7f090007;
-        public static final int drawer_open=0x7f090006;
+        public static final int app_not_available=0x7f09000a;
+        public static final int drawer_close=0x7f090008;
+        public static final int drawer_open=0x7f090007;
         public static final int editTextHint=0x7f090005;
         public static final int pull_to_refresh_pull_label=0x7f090001;
         public static final int pull_to_refresh_refreshing_label=0x7f090003;
         public static final int pull_to_refresh_release_label=0x7f090002;
         public static final int spb_default_speed=0x7f090000;
+        public static final int test=0x7f090006;
     }
     public static final class style {
         public static final int SmoothProgressBar=0x7f0b0001;

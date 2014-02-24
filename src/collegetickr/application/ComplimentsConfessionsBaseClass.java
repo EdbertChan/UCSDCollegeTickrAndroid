@@ -1,7 +1,11 @@
+/*Consists of an edit text box, upload image, submit confession, and view others.
+ * Does not consist of an adapter becuase of the possibility of creating infinite
+ * instances and crashing.
+ */
 package collegetickr.application;
 
 
-import collegetickr.views.PostDataWebTask;
+import collegetickr.library.AsyncTasks.PostDataWebTask;
 import android.app.Activity;
 import android.content.CursorLoader;
 import android.content.Intent;
@@ -45,6 +49,7 @@ public abstract class ComplimentsConfessionsBaseClass extends Fragment {
 
 		final EditText edit_text = (EditText) rootView.findViewById(editText);
 
+		
 		Button buttonLoadImage = (Button) rootView
 				.findViewById(uploadPictureButton);
 		buttonLoadImage.setOnClickListener(new View.OnClickListener() {
@@ -59,20 +64,7 @@ public abstract class ComplimentsConfessionsBaseClass extends Fragment {
 				startActivityForResult(i, RESULT_LOAD_IMAGE);
 			}
 		});
-		Button buttonSubmit = (Button) rootView.findViewById(submitButton);
-		buttonSubmit.setOnClickListener(new View.OnClickListener() {
-
-			@Override
-			public void onClick(View arg0) {
-				// execute the async
-				PostDataWebTask newPostTask = new PostDataWebTask(edit_text.getText().toString(),
-						selectedImagePath, appIdentifier);
-				// we want to pass in an enum of what activity (compliment/
-				// whatever)
-				newPostTask.execute();
-
-			}
-		});
+		
 
 		return rootView;
 	}
