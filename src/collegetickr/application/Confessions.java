@@ -17,14 +17,19 @@ import android.widget.ViewFlipper;
 
 
 public class Confessions extends ComplimentsConfessionsBaseClass {
+	public Confessions(ViewPager mPager) {
+		super(mPager);
+		// TODO Auto-generated constructor stub
+	}
+
 	int rootLayout = R.layout.confessions_layout,
 			editText = R.id.editTextConfessions,
 			uploadPictureButton = R.id.uploadPictureConfession,
-			submitButton = R.id.submitConfession;
+			submitButton = R.id.submitConfession, viewContent = R.id.viewConfession;
 
 	@Override
 	protected void initializeValues() {
-		super.initializeValues(rootLayout, editText, uploadPictureButton, submitButton, appIdentifier);
+		super.initializeValues(rootLayout, editText, uploadPictureButton, submitButton, appIdentifier, viewContent);
 		
 	}
 	

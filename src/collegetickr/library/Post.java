@@ -9,14 +9,23 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Post implements Parcelable{
+	//might want to make createdDate and updated Date 
 	String iconURL, content, createdDate, updatedDate, author, id;
 	int upvote, downvote, totalScore;
-	ArrayList<String> comments;
+	ArrayList<Comment> 	comments = new ArrayList<Comment>();
 	boolean allowMsg;
 	//constructor input JSON string,
+	public Post(){
+		//this is just default. we should never call this in practice
+		iconURL = content = createdDate = updatedDate = author = id = "";
+		upvote = downvote = totalScore = 0;
+	
+		
+		allowMsg = false;
+	}
 	public Post(JSONObject jObject){
 		
-		comments = new ArrayList<String>();
+		
 		try {
 			
 			id = jObject.getString(JSONHandlerLibrary.postID);
@@ -55,7 +64,7 @@ dest.writeIntArray(new int[]{totalScore,upvote,downvote});
 dest.writeBooleanArray(new boolean[]{allowMsg
 		
 });
-	dest.writeStringList(comments);
+	dest.writeList(comments);
 	}
 
 }

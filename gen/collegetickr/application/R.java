@@ -9,13 +9,12 @@ package collegetickr.application;
 
 public final class R {
     public static final class anim {
-        public static final int slide_in_left=0x7f040000;
-        public static final int slide_in_right=0x7f040001;
-        public static final int slide_out_left=0x7f040002;
-        public static final int slide_out_right=0x7f040003;
-    }
-    public static final class array {
-        public static final int collegetickr_applications_list=0x7f0c0000;
+        public static final int popup_enter=0x7f040000;
+        public static final int popup_exit=0x7f040001;
+        public static final int slide_in_left=0x7f040002;
+        public static final int slide_in_right=0x7f040003;
+        public static final int slide_out_left=0x7f040004;
+        public static final int slide_out_right=0x7f040005;
     }
     public static final class attr {
         /**  A drawable to use as the background of the Header View 
@@ -202,27 +201,36 @@ containing a value of this type.
     public static final class id {
         public static final int action_listview=0x7f05000f;
         public static final int action_scrollview=0x7f050011;
-        public static final int action_websearch=0x7f050028;
+        public static final int action_websearch=0x7f050032;
         public static final int action_webview=0x7f050010;
+        public static final int aroundme_listview=0x7f050019;
+        public static final int btn_close_popup=0x7f050017;
+        public static final int commentContainer=0x7f050018;
+        public static final int commentContent=0x7f050014;
+        public static final int commentEditText=0x7f05001a;
+        public static final int commentPosterIcon=0x7f050012;
+        public static final int commentPosterName=0x7f050013;
+        public static final int commentSubmit=0x7f05001b;
         public static final int content_frame=0x7f05000d;
         public static final int drawer_layout=0x7f05000b;
-        public static final int editTextCompliments=0x7f050012;
-        public static final int editTextConfessions=0x7f050016;
+        public static final int editTextCompliments=0x7f05001c;
+        public static final int editTextConfessions=0x7f050020;
         public static final int inside=0x7f050004;
         public static final int left_drawer=0x7f05000e;
-        public static final int navmenuitem_icon=0x7f05001d;
-        public static final int navmenuitem_label=0x7f05001e;
-        public static final int navmenusection_label=0x7f05001f;
+        public static final int navmenuitem_icon=0x7f050027;
+        public static final int navmenuitem_label=0x7f050028;
+        public static final int navmenusection_label=0x7f050029;
         public static final int outside=0x7f050005;
         public static final int pager=0x7f05000c;
-        public static final int postAuthor=0x7f050022;
-        public static final int postComment=0x7f050026;
-        public static final int postContent=0x7f050023;
-        public static final int postDownVote=0x7f050025;
-        public static final int postIcon=0x7f050021;
-        public static final int postScore=0x7f050027;
-        public static final int postScrollView=0x7f050020;
-        public static final int postUpVote=0x7f050024;
+        public static final int popup_element=0x7f050015;
+        public static final int postAuthor=0x7f05002c;
+        public static final int postComment=0x7f050030;
+        public static final int postContent=0x7f05002d;
+        public static final int postDownVote=0x7f05002f;
+        public static final int postIcon=0x7f05002b;
+        public static final int postScore=0x7f050031;
+        public static final int postScrollView=0x7f05002a;
+        public static final int postUpVote=0x7f05002e;
         public static final int ptr_content=0x7f050006;
         public static final int ptr_layout=0x7f050009;
         public static final int ptr_listview=0x7f05000a;
@@ -232,15 +240,16 @@ containing a value of this type.
         public static final int spb_interpolator_acceleratedecelerate=0x7f050002;
         public static final int spb_interpolator_decelerate=0x7f050003;
         public static final int spb_interpolator_linear=0x7f050001;
-        public static final int submitCompliment=0x7f050014;
-        public static final int submitConfession=0x7f050018;
-        public static final int tutorial_date=0x7f05001c;
-        public static final int tutorial_desc=0x7f05001b;
-        public static final int tutorial_title=0x7f05001a;
-        public static final int uploadPictureCompliment=0x7f050013;
-        public static final int uploadPictureConfession=0x7f050017;
-        public static final int viewCompliments=0x7f050015;
-        public static final int viewConfession=0x7f050019;
+        public static final int submitCompliment=0x7f05001e;
+        public static final int submitConfession=0x7f050022;
+        public static final int tutorial_date=0x7f050026;
+        public static final int tutorial_desc=0x7f050025;
+        public static final int tutorial_title=0x7f050024;
+        public static final int txtView=0x7f050016;
+        public static final int uploadPictureCompliment=0x7f05001d;
+        public static final int uploadPictureConfession=0x7f050021;
+        public static final int viewCompliments=0x7f05001f;
+        public static final int viewConfession=0x7f050023;
     }
     public static final class integer {
         public static final int spb_default_interpolator=0x7f080001;
@@ -250,19 +259,22 @@ containing a value of this type.
         public static final int activity_list_view=0x7f030000;
         public static final int activity_main=0x7f030001;
         public static final int base_menu=0x7f030002;
-        public static final int compliments_layout=0x7f030003;
-        public static final int confessions_layout=0x7f030004;
-        public static final int confessions_scafoold_layout=0x7f030005;
-        public static final int default_header=0x7f030006;
-        public static final int drawer_list_item=0x7f030007;
-        public static final int listview_each_item=0x7f030008;
-        public static final int navdrawer_item=0x7f030009;
-        public static final int navdrawer_section=0x7f03000a;
-        public static final int post_layout=0x7f03000b;
+        public static final int comment_list_item=0x7f030003;
+        public static final int comments_popup=0x7f030004;
+        public static final int comments_scaffold_layout=0x7f030005;
+        public static final int compliments_layout=0x7f030006;
+        public static final int confessions_layout=0x7f030007;
+        public static final int confessions_scaffold_layout=0x7f030008;
+        public static final int default_header=0x7f030009;
+        public static final int drawer_list_item=0x7f03000a;
+        public static final int listview_each_item=0x7f03000b;
+        public static final int navdrawer_item=0x7f03000c;
+        public static final int navdrawer_section=0x7f03000d;
+        public static final int post_layout=0x7f03000e;
     }
     public static final class menu {
-        public static final int base_menu=0x7f0d0000;
-        public static final int main=0x7f0d0001;
+        public static final int base_menu=0x7f0c0000;
+        public static final int main=0x7f0c0001;
     }
     public static final class string {
         public static final int action_websearch=0x7f090009;
@@ -278,6 +290,8 @@ containing a value of this type.
         public static final int test=0x7f090006;
     }
     public static final class style {
+        public static final int Animations=0x7f0b0003;
+        public static final int Animations_popup=0x7f0b0004;
         public static final int SmoothProgressBar=0x7f0b0001;
         public static final int Theme_SmoothProgressBarDefaults=0x7f0b0000;
         public static final int Widget_ProgressBar_PullToRefresh=0x7f0b0002;

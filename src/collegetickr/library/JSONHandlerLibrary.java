@@ -2,10 +2,14 @@
  * calls. It is solely responsible for parsing.*/
 package collegetickr.library;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+
+import android.net.ParseException;
 
 public class JSONHandlerLibrary {
 	public static final String postID = "id";
@@ -28,6 +32,7 @@ public class JSONHandlerLibrary {
 	public static final String weightedScore = "cached_weighted_score";
 
 	public static final int numOfPostFetch = 5;
+	public static final String APIURL = "http://www.google.com";
 
 	public static String getURLFromPosition(int pos) {
 		// tells how many # of positions we are at in order to get the next
@@ -59,5 +64,10 @@ public class JSONHandlerLibrary {
 		}
 
 		return listOfPostsFromJSON;
+	}
+	public static Date JSONtoDate(String dateString) throws Exception{
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+		Date date  = formatter.parse(dateString);
+		return date;
 	}
 }

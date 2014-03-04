@@ -1,16 +1,19 @@
 package collegetickr.application.DrawerItems;
 
 import collegetickr.application.R;
+import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
@@ -61,8 +64,21 @@ public abstract class AbstractNavDrawerActivity extends FragmentActivity {
                 getActionBar().setTitle(mTitle);
                 invalidateOptionsMenu();
             }
-
+public void onDrawerSlide(View drawerView, float slideOffset){
+//we hide the keyboard on the slide open. Maybe we can improve the performance by making the call
+	//fragment specific? However, how can we call it from the fragment? This needs
+	//to be researched more
+	 InputMethodManager imm = 
+            (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+	 
+	 //alternatively, we can call the View on mDrawerList's current position
+	 //and if it is a ComplimentsConfessions, we can click
+    imm.hideSoftInputFromWindow(mDrawerList.getWindowToken(), 0);
+	super.onDrawerSlide(drawerView, slideOffset);
+	
+}
             public void onDrawerOpened(View drawerView) {
+        
                 getActionBar().setTitle(mDrawerTitle);
                 invalidateOptionsMenu();
             }
@@ -141,6 +157,7 @@ public abstract class AbstractNavDrawerActivity extends FragmentActivity {
     }
     
     public void selectItem(int position) {
+    	
         NavDrawerItem selectedItem = navConf.getNavItems()[position];
         
         this.onNavItemSelected(selectedItem.getId());

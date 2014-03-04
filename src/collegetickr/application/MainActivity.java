@@ -2,6 +2,9 @@ package collegetickr.application;
 
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import collegetickr.application.DrawerItems.AbstractNavDrawerActivity;
 import collegetickr.application.DrawerItems.NavDrawerActivityConfiguration;
 import collegetickr.application.DrawerItems.NavDrawerAdapter;
@@ -11,7 +14,7 @@ import collegetickr.application.DrawerItems.NavMenuSection;
 
 import collegetickr.library.IdentifiersList;
 
-public class MainActivity extends AbstractNavDrawerActivity {
+public class MainActivity extends AbstractNavDrawerActivity{
     
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -51,14 +54,37 @@ public class MainActivity extends AbstractNavDrawerActivity {
     
     @Override
     protected void onNavItemSelected(int id) {
+  
     	//need to work on these. Just match the ID to the activity we want.
+
         switch ((int)id) {
         case IdentifiersList.complimentsNumericID:
-            getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new PostFragment()).commit();
-            break;
+            //getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new Compliments()).commit();
+        	//fragment = new Compliments();
+        	replaceFragment( new Compliments());
+        	break;
         case IdentifiersList.confessionsNumericID:
-            getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new ConfessionsScaffoldingFragment()).commit();
-            break;
+            //getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new ConfessionsApplicationFragment()).commit();
+        	  replaceFragment(new ConfessionsApplicationFragment());
+        	
+        	break;
         }
+    	 
     }
+    private void replaceFragment (Fragment fragment){
+    	  String backStateName =  fragment.getClass().getName();
+    	  String fragmentTag = backStateName;
+
+    	  FragmentManager manager = getSupportFragmentManager();
+    	  boolean fragmentPopped = manager.popBackStackImmediate (backStateName, 0);
+
+    	  if (!fragmentPopped && manager.findFragmentByTag(fragmentTag) == null){ //fragment not in back stack, create it.
+    	    FragmentTransaction ft = manager.beginTransaction();
+    	    ft.replace(R.id.content_frame, fragment, fragmentTag);
+    	    ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+    	    ft.addToBackStack(backStateName);
+    	    ft.commit();
+    	  } 
+    	}
+    
 }

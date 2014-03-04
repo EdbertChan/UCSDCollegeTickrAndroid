@@ -27,16 +27,17 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
+import android.support.v4.app.Fragment;
 import android.util.Log;
 //How to use: new MyTask(this).execute("http://samir-mangroliya.blogspot.in");
 public class GetDataWebTask extends AsyncTask<String, String, String>{
-	 private Activity activity;
+	// private Activity activity;
 	 
 	 private AsyncTaskCompleteListener callback;
 
 	 
-	 public GetDataWebTask(Activity act) {
-		 this.activity = act;
+	 public GetDataWebTask(Fragment act) {
+		// this.activity = act;
 		  this.callback = (AsyncTaskCompleteListener)act;
 		 }
 
@@ -86,6 +87,6 @@ public class GetDataWebTask extends AsyncTask<String, String, String>{
     	
         super.onPostExecute(result);
         callback.onTaskComplete(result);
-        //callback.onTaskComplete(result);
+       
     }
 }
