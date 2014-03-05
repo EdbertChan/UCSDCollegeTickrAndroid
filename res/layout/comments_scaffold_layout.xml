@@ -20,6 +20,11 @@
         tools:listitem="@layout/comment_list_item"
         
       />
+      <ProgressBar android:id="@+id/commentLoadingSpinner"
+        style="?android:progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center" />
 </LinearLayout>
  <!--     <TextView
         android:id="@+id/commentsTitle"
@@ -41,7 +46,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="Write something..."
-     
+     android:maxLines="5"
         android:layout_weight=".7"
         >
 
@@ -56,5 +61,6 @@
         android:layout_weight=".3"
          />
 </LinearLayout>
+ 
 </LinearLayout>
 

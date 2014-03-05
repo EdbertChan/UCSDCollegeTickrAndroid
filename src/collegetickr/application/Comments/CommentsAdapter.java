@@ -14,7 +14,6 @@ import java.util.List;
 import collegetickr.application.R;
 import collegetickr.application.R.id;
 import collegetickr.application.R.layout;
-import collegetickr.library.Comment;
 
 public class CommentsAdapter extends ArrayAdapter<Comment> {
 

@@ -9,6 +9,8 @@ import java.util.Date;
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import collegetickr.application.Post.Post;
+
 import android.net.ParseException;
 
 public class JSONHandlerLibrary {

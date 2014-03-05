@@ -2,5 +2,7 @@
 <lint>
     <issue id="ValidFragment">
         <ignore path="src/collegetickr/application/CommentsScaffoldFragment.java" />
+        <ignore path="src/collegetickr/application/Comments/CommentsFragment.java" />
+        <ignore path="src/collegetickr/application/Post/PostFragment.java" />
     </issue>
 </lint>

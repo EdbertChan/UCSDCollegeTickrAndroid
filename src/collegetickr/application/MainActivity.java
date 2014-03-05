@@ -11,6 +11,8 @@ import collegetickr.application.DrawerItems.NavDrawerAdapter;
 import collegetickr.application.DrawerItems.NavDrawerItem;
 import collegetickr.application.DrawerItems.NavMenuItem;
 import collegetickr.application.DrawerItems.NavMenuSection;
+import collegetickr.application.Fragments.Compliments;
+import collegetickr.application.NavDrawerFragments.ConfessionNavDrawer;
 
 import collegetickr.library.IdentifiersList;
 
@@ -65,12 +67,17 @@ public class MainActivity extends AbstractNavDrawerActivity{
         	break;
         case IdentifiersList.confessionsNumericID:
             //getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new ConfessionsApplicationFragment()).commit();
-        	  replaceFragment(new ConfessionsApplicationFragment());
+        	// replaceFragment(new ConfessionsApplicationFragment());
+        	replaceFragment(new ConfessionNavDrawer());
         	
         	break;
         }
     	 
     }
+    //pulls fragment from backstack if it already exists. This allows us to save 
+    //user's data every time we go to the fragment. 
+    //however, we may want to figure out how to automatically go to the front without
+    //always scrolling throug hall the stuff.
     private void replaceFragment (Fragment fragment){
     	  String backStateName =  fragment.getClass().getName();
     	  String fragmentTag = backStateName;
