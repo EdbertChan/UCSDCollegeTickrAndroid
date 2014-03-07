@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import collegetickr.application.DrawerItems.AbstractNavDrawerActivity;
 import collegetickr.application.DrawerItems.NavDrawerActivityConfiguration;
 import collegetickr.application.DrawerItems.NavDrawerAdapter;
@@ -13,11 +14,14 @@ import collegetickr.application.DrawerItems.NavMenuItem;
 import collegetickr.application.DrawerItems.NavMenuSection;
 import collegetickr.application.Fragments.Compliments;
 import collegetickr.application.NavDrawerFragments.ConfessionNavDrawer;
+import collegetickr.application.login.LoginFragment;
+import collegetickr.application.login.RegisterFragment;
 
 import collegetickr.library.IdentifiersList;
 
 public class MainActivity extends AbstractNavDrawerActivity{
-    
+	static NavDrawerItem[] menu;
+	static FragmentManager manager;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,20 +30,19 @@ public class MainActivity extends AbstractNavDrawerActivity{
             getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new Compliments()).commit();
         }
     }
-    
+
     @Override
     protected NavDrawerActivityConfiguration getNavDrawerConfiguration() {
         
-        NavDrawerItem[] menu = new NavDrawerItem[] {
-                NavMenuSection.create( 100, "Account"),
-                NavMenuItem.create(IdentifiersList.signupNumericID,IdentifiersList.signupID, "navdrawer_friends", false, this),
-                NavMenuItem.create(IdentifiersList.loginNumericID, IdentifiersList.loginID, "navdrawer_airport", true, this), 
-                NavMenuSection.create(200, "School News"),
+    	menu = new NavDrawerItem[] {
+                NavMenuSection.create(100, "School News"),
                 NavMenuItem.create(IdentifiersList.guardianNumericID, IdentifiersList.guardianID, "navdrawer_rating", false, this),
                 NavMenuItem.create(IdentifiersList.TVNumericID, IdentifiersList.TVID, "navdrawer_eula", false, this),
-                NavMenuSection.create(300, "Community"),
+                NavMenuSection.create(200, "Community"),
                 NavMenuItem.create(IdentifiersList.complimentsNumericID, IdentifiersList.complimentsID, "navdrawer_quit", false, this),
-                NavMenuItem.create(IdentifiersList.confessionsNumericID, IdentifiersList.confessionsID, " ", false, this)};
+                NavMenuItem.create(IdentifiersList.confessionsNumericID, IdentifiersList.confessionsID, " ", false, this),
+                NavMenuSection.create( 300, "Account"),
+                NavMenuItem.create(IdentifiersList.loginNumericID, IdentifiersList.loginID, "navdrawer_airport", true, this),};
         
         NavDrawerActivityConfiguration navDrawerActivityConfiguration = new NavDrawerActivityConfiguration();
         navDrawerActivityConfiguration.setMainLayout(R.layout.activity_main);
@@ -54,12 +57,18 @@ public class MainActivity extends AbstractNavDrawerActivity{
         return navDrawerActivityConfiguration;
     }
     
+    //add a function that will allow us to add in a navdrawer item to logout and change account settings?
+    //or we can add 3 nav drawers under the account settings
     @Override
-    protected void onNavItemSelected(int id) {
+  public void onNavItemSelected(int id) {
   
     	//need to work on these. Just match the ID to the activity we want.
 
         switch ((int)id) {
+        case IdentifiersList.loginNumericID:
+        	replaceFragment(new LoginFragment());
+        	break;
+
         case IdentifiersList.complimentsNumericID:
             //getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new Compliments()).commit();
         	//fragment = new Compliments();
@@ -78,20 +87,26 @@ public class MainActivity extends AbstractNavDrawerActivity{
     //user's data every time we go to the fragment. 
     //however, we may want to figure out how to automatically go to the front without
     //always scrolling throug hall the stuff.
-    private void replaceFragment (Fragment fragment){
+    public void replaceFragment (Fragment fragment){
     	  String backStateName =  fragment.getClass().getName();
-    	  String fragmentTag = backStateName;
+    	  //String fragmentTag = backStateName;
 
     	  FragmentManager manager = getSupportFragmentManager();
     	  boolean fragmentPopped = manager.popBackStackImmediate (backStateName, 0);
+    	  //fragment not in back stack, create it.
+    	  if (!fragmentPopped && manager.findFragmentByTag(backStateName) == null){ 
 
-    	  if (!fragmentPopped && manager.findFragmentByTag(fragmentTag) == null){ //fragment not in back stack, create it.
     	    FragmentTransaction ft = manager.beginTransaction();
-    	    ft.replace(R.id.content_frame, fragment, fragmentTag);
+    	    //ft.replace(R.id.content_frame, fragment, fragmentTag);
+    	    ft.replace(R.id.content_frame, fragment, backStateName);
     	    ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+    	    //ft.addToBackStack(backStateName);
     	    ft.addToBackStack(backStateName);
     	    ft.commit();
+    	    
     	  } 
+    	//  need to update title: setTitle(fragment.get);
+    	  
     	}
     
 }

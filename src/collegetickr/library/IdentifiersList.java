@@ -9,7 +9,8 @@ public class  IdentifiersList{
 	public static final String confessionsID = "UCSD Confession";
 	public static final String dealsID = "UCSD Deals";
 	public static final String jobsID = "UCSD Jobs & Internships";
-	
+	public static final String registerID = "UCSD Register";
+
 	
 	public static final int guardianNumericID = 101;
 	public static final int TVNumericID = 102;
@@ -19,7 +20,7 @@ public class  IdentifiersList{
 	public static final int jobsNumericID = 106;
 	public static final int signupNumericID = 107;
 	public static final int loginNumericID = 108;
-
+	public static final int registerNumericID = 109;
 	
 	public static final String SELECTIONID = "selection id"; 
 	

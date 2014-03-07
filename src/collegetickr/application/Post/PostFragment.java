@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import collegetickr.application.CustomScrollView;
 import collegetickr.application.R;
 import collegetickr.application.Comments.Comment;
-import collegetickr.application.Comments.CommentsFragment.onSubmitListener;
+
 import collegetickr.application.R.id;
 import collegetickr.application.R.layout;
 import collegetickr.library.AndroidAbstractClasses.DismissablePopupWindow;

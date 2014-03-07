@@ -21,7 +21,9 @@ import android.view.DragEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -51,21 +53,29 @@ public abstract class ComplimentsConfessionsFragmentBaseClass extends Fragment {
 		this.mPager = null;
 
 	}
-	
+
 	public ComplimentsConfessionsFragmentBaseClass(ViewPager mPager) {
 
 		this.mPager = mPager;
 	}
-@Override
+
+	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-	super.onCreate(savedInstanceState);
-    
+		super.onCreate(savedInstanceState);
+
 		initializeValues();
 
 		View rootView = inflater.inflate(rootLayout, container, false);
 
 		final EditText edit_text = (EditText) rootView.findViewById(editText);
+
+		/*
+		 * InputMethodManager inputMethodManager = (InputMethodManager)
+		 * ((Activity) context).getSystemService(Activity.INPUT_METHOD_SERVICE);
+		 * inputMethodManager.hideSoftInputFromWindow( ((Activity)
+		 * context).getCurrentFocus().getWindowToken(), 0);
+		 */
 
 		Button buttonLoadImage = (Button) rootView
 				.findViewById(uploadPictureButton);
@@ -81,11 +91,12 @@ public abstract class ComplimentsConfessionsFragmentBaseClass extends Fragment {
 				startActivityForResult(i, RESULT_LOAD_IMAGE);
 			}
 		});
-//this is how we change on "view compliments/view confessions". We just go
-		//to the next item. We assume the posts immediately follow the 
-		//submit confessions/compliments. This is something that we should
-		//probably change in the future (eg scan until we find an instance of a 
-		//post fragment but we will discuss this).
+		// this is how we change on "view compliments/view confessions". We just
+		// go
+		// to the next item. We assume the posts immediately follow the
+		// submit confessions/compliments. This is something that we should
+		// probably change in the future (eg scan until we find an instance of a
+		// post fragment but we will discuss this).
 		if (mPager != null) {
 			Button buttonViewContent = (Button) rootView
 					.findViewById(viewContent);
@@ -115,9 +126,10 @@ public abstract class ComplimentsConfessionsFragmentBaseClass extends Fragment {
 			// set to change image and display small icon underneath?
 		}
 	}
-@Override
-public void onStop(){
-	super.onStop();
-	Log.i("called onStop", "colled onStop");
-}
+
+	@Override
+	public void onStop() {
+		super.onStop();
+		Log.i("called onStop", "colled onStop");
+	}
 }
