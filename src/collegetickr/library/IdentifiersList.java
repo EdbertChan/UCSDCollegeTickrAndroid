@@ -1,4 +1,9 @@
-/* Manages ID for the controllers and fragments in Main Activity*/
+/* Manages ID for the controllers and fragments in Main Activity
+ * Note: At some point, we will have multiple applications and UCSD might not be
+ * the only college we support. At that point, we will have to rework the ids and naming
+ * conventions. It will depend entirely on what apps each college has. We may
+ * have to copy the structure of the backend for this part.
+ * */
 package collegetickr.library;
 public class  IdentifiersList{
 	public static final String signupID = "Signup";
@@ -24,6 +29,12 @@ public class  IdentifiersList{
 	
 	public static final String SELECTIONID = "selection id"; 
 	
+	public static final String loggedInSharedPreferenceID = "LoggedIn";
+	public static final String universitySharedPreferenceID = "UniversityOfUser";
+	public static final String userNameSharedPreferenceID = "UserName";
+	public static final String passwordSharedPreferenceID = "Password";
+	
+	public static final int previewUploadThumbnailSize = 100;
 	//POST tags
 	public static final String CONFESSIONSURL = "http://collegetickr.com/ucsd/confessions";
 	public static final String COMPLIMENTSURL = "http://collegetickr.com/ucsd/compliments";

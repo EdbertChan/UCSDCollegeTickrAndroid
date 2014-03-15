@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<collegetickr.library.CustomScrollView
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="fill_parent"
   android:layout_height="fill_parent"
@@ -65,10 +65,20 @@
 		  		android:layout_height="wrap_content"
 		  		android:layout_marginTop="40dip"
 		  		android:layout_marginBottom="40dip"
-		  		android:text="New to Twitter? Register here"
+		  		android:text="New to CollegeTickr? Register here"
 		  		android:gravity="center"
 		  		android:textSize="20dip"
 		  		android:textColor="#0b84aa"/>
+		    <TextView android:id="@+id/login_later_link" 
+		  		android:layout_width="fill_parent"
+		  		android:layout_height="wrap_content"
+		 
+		  		android:layout_marginBottom="40dip"
+		  		android:text="Maybe Later..."
+		  		android:gravity="center"
+		  		android:textSize="20dip"
+		  		android:textColor="#0b84aa"/>
+		    
 		    
 		</LinearLayout>
   		<!-- Login Form Ends --> 		
@@ -84,4 +94,4 @@
   		<!-- Footer Ends -->
   		
   </RelativeLayout>
-</ScrollView>
+</collegetickr.library.CustomScrollView>

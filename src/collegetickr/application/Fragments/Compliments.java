@@ -1,6 +1,5 @@
 package collegetickr.application.Fragments;
 
-import collegetickr.application.ComplimentsConfessionsFragmentBaseClass;
 import collegetickr.application.R;
 import collegetickr.application.R.id;
 import collegetickr.application.R.layout;
@@ -21,11 +20,11 @@ public class Compliments extends ComplimentsConfessionsFragmentBaseClass {
 	int rootLayout = R.layout.compliments_layout,
 			editText = R.id.editTextCompliments,
 			uploadPictureButton = R.id.uploadPictureCompliment,
-			submitButton = R.id.submitCompliment, viewContent = R.id.viewCompliments;
+			submitButton = R.id.submitCompliment, viewContent = R.id.viewCompliments, uploadPicturePreviewID = R.id.complimentImageUploadPreview,  cancelUploadButtonID = R.id.complimentCancelImageUpload;
 
 	@Override
 	protected void initializeValues() {
-		super.initializeValues(rootLayout, editText, uploadPictureButton, submitButton, appIdentifier, viewContent);
+		super.initializeValues(rootLayout, editText, uploadPictureButton, submitButton, appIdentifier, viewContent, uploadPicturePreviewID, cancelUploadButtonID);
 	}
 
 

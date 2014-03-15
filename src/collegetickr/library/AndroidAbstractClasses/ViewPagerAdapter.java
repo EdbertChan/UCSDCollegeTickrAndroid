@@ -24,6 +24,7 @@ public ViewPagerAdapter(FragmentManager fragmentManager) {
   
     
 }
+
 public void addFragment(Fragment fragment){
     mFragments.add(fragment);
     notifyDataSetChanged();

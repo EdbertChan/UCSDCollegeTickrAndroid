@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainmenu"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:foreground="@drawable/shape_window_dim" >
+<LinearLayout
+
+  android:layout_width="fill_parent"
+  android:orientation="vertical"
+  android:background="#90FFFFFF"
+  android:layout_height="wrap_content">
+  
+  <TextView
+      android:layout_width="fill_parent"
+      android:text="PopUp Window"
+      android:textColor="#000000"
+      android:gravity="center"
+      android:textStyle="bold"
+      android:layout_height="wrap_content">
+  </TextView>
+  
+  <Button
+      android:layout_width="fill_parent"
+      android:id="@+id/btnOk"
+      android:text="Ok"
+      android:layout_height="wrap_content">
+  </Button>
+  
+  <Button
+      android:layout_width="fill_parent"
+      android:id="@+id/btnCancel"
+      android:text="Cancel"
+      android:layout_height="wrap_content">
+  </Button>
+  
+</LinearLayout>
+</FrameLayout>

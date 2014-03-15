@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <lint>
-    <issue id="ValidFragment">
+    <issue id="ValidFragment" severity="ignore">
         <ignore path="src/collegetickr/application/CommentsScaffoldFragment.java" />
         <ignore path="src/collegetickr/application/Comments/CommentsFragment.java" />
+        <ignore path="src/collegetickr/application/Fragments/Compliments.java" />
+        <ignore path="src/collegetickr/application/Fragments/Confessions.java" />
+        <ignore path="src/collegetickr/application/Login/LoginFragment.java" />
+        <ignore path="src/collegetickr/application/Login/RegisterFragment.java" />
         <ignore path="src/collegetickr/application/Post/PostFragment.java" />
     </issue>
 </lint>

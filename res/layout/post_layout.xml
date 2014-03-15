@@ -2,81 +2,86 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" 
-    >
-     <collegetickr.application.CustomScrollView
-            android:layout_width="fill_parent"
+    android:orientation="vertical" >
+
+    <collegetickr.library.CustomScrollView
+        android:id="@+id/postScrollView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:fillViewport="true"
+        android:paddingBottom="20dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="20dp"
+        android:scrollbarStyle="outsideInset" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="fill_parent"
-               android:id="@+id/postScrollView"
-               android:scrollbarStyle="outsideInset"
-                android:fillViewport="true"
-                android:paddingLeft="20dp"
-    android:paddingBottom="20dp"
-    android:paddingRight="20dp"
-    android:paddingTop="20dp">
-            <LinearLayout 
-                  android:layout_width="match_parent"
-                  android:layout_height="fill_parent"
-                  android:orientation="vertical"
-                  >
-                <ImageView 
-           android:id="@+id/postIcon"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-            android:src="@drawable/post_icon" 
-           />
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/postIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/post_icon" />
+
+            <TextView
+                android:id="@+id/postAuthor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Post Author"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/postContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/test" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_alignParentBottom="true"
+                android:gravity="bottom"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@+id/postUpVote"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:src="@drawable/up_vote" />
+
+                <ImageView
+                    android:id="@+id/postDownVote"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:src="@drawable/down_vote" />
+
+                <ImageView
+                    android:id="@+id/postComment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true" 
+                    android:src="@drawable/comment_icon"/>
+
                 <TextView
-                    android:textStyle="bold"
-                    android:id="@+id/postAuthor"
-        android:text="Post Author"
-         android:layout_width="match_parent"
-           android:layout_height="wrap_content" />
-                <TextView
-                    android:id="@+id/postContent"
-        android:text="@string/test"
-         android:layout_width="match_parent"
-           android:layout_height="wrap_content" />
-                      <LinearLayout 
-                  android:layout_width="match_parent"
-                  android:layout_height="fill_parent"
-                  android:orientation="horizontal"
-                  android:gravity="bottom"
-                  
-                  android:layout_alignParentBottom="true"
-                  >
-                  <ImageView 
-                      android:layout_alignParentBottom="true"
-           android:id="@+id/postUpVote"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:src="@drawable/up_vote" 
-           />
-                  <ImageView 
-           android:id="@+id/postDownVote"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:src="@drawable/down_vote" 
-           android:layout_alignParentBottom="true"
-           />
-                  <ImageView 
-           android:id="@+id/postComment"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:layout_alignParentBottom="true"
-           />
-                   <TextView 
                     android:id="@+id/postScore"
-        android:text="Post Score"
-         android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:layout_alignParentBottom="true" />
-                   
-                  </LinearLayout>
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:text="Post Score" />
             </LinearLayout>
-      </collegetickr.application.CustomScrollView>
-   <ProgressBar android:id="@+id/postLoadingSpinner"
+        </LinearLayout>
+    </collegetickr.library.CustomScrollView>
+
+    <ProgressBar
+        android:id="@+id/postLoadingSpinner"
         style="?android:progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center" />
+
 </LinearLayout>

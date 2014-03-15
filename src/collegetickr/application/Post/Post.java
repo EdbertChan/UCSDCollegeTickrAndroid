@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import collegetickr.application.Comments.Comment;
+import collegetickr.application.Post.Comments.Comment;
 import collegetickr.library.JSONHandlerLibrary;
 
 import android.os.Parcel;

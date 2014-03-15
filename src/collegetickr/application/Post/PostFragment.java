@@ -3,13 +3,13 @@ package collegetickr.application.Post;
 
 import java.util.ArrayList;
 
-import collegetickr.application.CustomScrollView;
 import collegetickr.application.R;
-import collegetickr.application.Comments.Comment;
 
+import collegetickr.application.Post.Comments.Comment;
+import collegetickr.application.Post.Comments.DismissablePopupWindowSelfMade;
 import collegetickr.application.R.id;
 import collegetickr.application.R.layout;
-import collegetickr.library.AndroidAbstractClasses.DismissablePopupWindow;
+import collegetickr.library.CustomScrollView;
 
 import android.app.ActionBar.LayoutParams;
 import android.content.Context;
@@ -53,7 +53,7 @@ public class PostFragment extends Fragment {
 	TextView content, author, postScore;
 	View rootView = null;
 	private Animation animShow, animHide;
-	private DismissablePopupWindow dpwindo = null;
+	private DismissablePopupWindowSelfMade dpwindo = null;
 
 	public PostFragment() {
 		postClass = new Post();
@@ -156,7 +156,7 @@ public class PostFragment extends Fragment {
 		// f1.show(getFragmentManager(), "");
 		// initiatePopupWindow(container);
 
-		dpwindo = new DismissablePopupWindow(container, getActivity()
+		dpwindo = new DismissablePopupWindowSelfMade(container, getActivity()
 				.getBaseContext(), listOfComments);
 		// animShow = AnimationUtils.loadAnimation(
 		// this.getActivity().getApplicationContext(), R.anim.popup_enter);

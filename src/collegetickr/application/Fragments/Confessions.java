@@ -1,6 +1,5 @@
 package collegetickr.application.Fragments;
 
-import collegetickr.application.ComplimentsConfessionsFragmentBaseClass;
 import collegetickr.application.R;
 import collegetickr.application.R.id;
 import collegetickr.application.R.layout;
@@ -17,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ViewFlipper;
 
 
@@ -29,12 +29,13 @@ public class Confessions extends ComplimentsConfessionsFragmentBaseClass {
 	int rootLayout = R.layout.confessions_layout,
 			editText = R.id.editTextConfessions,
 			uploadPictureButton = R.id.uploadPictureConfession,
-			submitButton = R.id.submitConfession, viewContent = R.id.viewConfession;
+			submitButton = R.id.submitConfession, viewContent = R.id.viewConfession, uploadPicturePreviewID = R.id.confessionImageUploadPreview,  cancelUploadButtonID = R.id.confessionCancelImageUpload;
 
 	@Override
 	protected void initializeValues() {
-		super.initializeValues(rootLayout, editText, uploadPictureButton, submitButton, appIdentifier, viewContent);
-		
+		super.initializeValues(rootLayout, editText, uploadPictureButton, submitButton, appIdentifier, viewContent, uploadPicturePreviewID, cancelUploadButtonID);
+	
+
 	}
 	
 
