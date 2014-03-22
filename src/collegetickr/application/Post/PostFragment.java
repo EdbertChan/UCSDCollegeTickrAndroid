@@ -10,6 +10,7 @@ import collegetickr.application.Post.Comments.DismissablePopupWindowSelfMade;
 import collegetickr.application.R.id;
 import collegetickr.application.R.layout;
 import collegetickr.library.CustomScrollView;
+import collegetickr.library.UpdateableFragment;
 
 import android.app.ActionBar.LayoutParams;
 import android.content.Context;
@@ -46,23 +47,38 @@ import android.support.v4.app.FragmentActivity;
 
 public class PostFragment extends Fragment {
 	Post postClass = null;
-	private ProgressBar spinner;
+
 	CustomScrollView scrollViewLayout;
 	ImageView upVote, downVote, icon;
 	ArrayList<Comment> listOfComments = new ArrayList<Comment>();
 	TextView content, author, postScore;
 	View rootView = null;
-	private Animation animShow, animHide;
+	// private Animation animShow, animHide;
 	private DismissablePopupWindowSelfMade dpwindo = null;
+	/*
+	 * public static final String ARG_POST_CLASS = "ARG_POST_CLASS"; public
+	 * static final String ARG_UP_VOTE = "ARG_UP_VOTE"; public static final
+	 * String ARG_DOWN_VOTE = "ARG_DOWN_VOTE"; public static final String
+	 * ARG_ICON = "ARG_ICON"; public static final String ARG_lIST_OF_COMMENTS =
+	 * "ARG_lIST_OF_COMMENTS"; public static final String ARG_CONTENT =
+	 * "ARG_CONTENT"; public static final String ARG_AUTHOR = "ARG_AUTHOR";
+	 * public static final String ARG_ROOT_VIEW = "ARG_ROOT_VIEW"; public static
+	 * final String ARG_DP_WINDO = "ARG_DP_WINDO";
+	 */
+	public static final String ARG_POST_CLASS = "ARG_POST_CLASS";
 
 	public PostFragment() {
 		postClass = new Post();
 	}
 
-	public PostFragment(Post postClass) {
-
-		this.postClass = postClass;
-
+	public PostFragment(PostFragment postFragment) {
+		try {
+			this.postClass = (Post) (postFragment.postClass.clone());
+		} catch (CloneNotSupportedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		// this.postClass = postClass;
 	}
 
 	private void initializeValues(LayoutInflater inflater,
@@ -70,7 +86,8 @@ public class PostFragment extends Fragment {
 		rootView = inflater.inflate(R.layout.post_layout, container, false);
 		scrollViewLayout = (CustomScrollView) rootView
 				.findViewById(R.id.postScrollView);
-		spinner = (ProgressBar) rootView.findViewById(R.id.postLoadingSpinner);
+		// spinner = (ProgressBar)
+		// rootView.findViewById(R.id.postLoadingSpinner);
 		upVote = (ImageView) rootView.findViewById(R.id.postUpVote);
 		downVote = (ImageView) rootView.findViewById(R.id.postDownVote);
 		postScore = (TextView) rootView.findViewById(R.id.postScore);
@@ -85,8 +102,16 @@ public class PostFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater,
 			final ViewGroup container, Bundle savedInstanceState) {
-
 		initializeValues(inflater, container, savedInstanceState);
+		
+		if (savedInstanceState != null && !(savedInstanceState.isEmpty())) {
+			savedInstanceState = this.getArguments();
+			postClass = (Post) savedInstanceState.getParcelable(ARG_POST_CLASS);
+		}
+
+
+		//here, we want to add shit that populates the textview
+		
 		upVote.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
@@ -141,12 +166,12 @@ public class PostFragment extends Fragment {
 	}
 
 	public void changeToLoading() {
-		spinner.setVisibility(View.VISIBLE);
+		// spinner.setVisibility(View.VISIBLE);
 		scrollViewLayout.setVisibility(View.GONE);
 	}
 
 	public void doneLoadingDismissSpinner() {
-		spinner.setVisibility(View.GONE);
+		// spinner.setVisibility(View.GONE);
 		scrollViewLayout.setVisibility(View.VISIBLE);
 	}
 
@@ -161,6 +186,14 @@ public class PostFragment extends Fragment {
 		// animShow = AnimationUtils.loadAnimation(
 		// this.getActivity().getApplicationContext(), R.anim.popup_enter);
 
+	}
+
+	public Post getPostClass() {
+		return postClass;
+	}
+
+	public void setPostClass(Post postClass) {
+		this.postClass = postClass;
 	}
 
 }

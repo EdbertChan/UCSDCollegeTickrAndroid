@@ -15,10 +15,9 @@
         android:layout_centerVertical="true"
         android:adjustViewBounds="true"
         android:scaleType="centerCrop"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_marginRight="10dp"
-         android:src="@drawable/post_icon" />
+        android:layout_width="120dp"
+        android:layout_height="80dp"
+        android:layout_marginRight="10dp"/>
 
     <TextView
         android:id="@+id/commentPosterName"
@@ -42,15 +41,7 @@
         android:textSize="13dp"
         tools:text="country">
     </TextView>
-  <ImageView
-        android:id="@+id/commentReplyToComment"
-           android:layout_toRightOf="@id/commentContent"
-        android:layout_alignParentRight="true"
-        android:adjustViewBounds="true"
-        android:scaleType="centerCrop"
-        android:layout_marginRight="10dp"
-        android:layout_width="32dp"
-           android:src="@drawable/reply_comment" />
+
   <!--   <TextView
         android:id="@+id/aroundme_placedistance"
         android:layout_width="wrap_content"

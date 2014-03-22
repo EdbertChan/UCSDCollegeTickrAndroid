@@ -2,7 +2,10 @@ package collegetickr.application.FragmentApplicationsForNavDrawer;
 
 import collegetickr.application.R;
 import collegetickr.application.MiscPopup.PopupLoginFragment;
+import collegetickr.application.profileLogin.LoginActivity;
+import collegetickr.library.IdentifiersList;
 import android.app.ActionBar.LayoutParams;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -41,9 +44,11 @@ public class EmptyFragment extends Fragment{
                 /* mpopup.setAnimationStyle(android.R.style.Animation_Dialog);   
                  mpopup.showAtLocation(popUpView, Gravity.BOTTOM, 0, 0);*/
             	 
-                 FragmentManager fragmentManager = getFragmentManager();
+                 /*FragmentManager fragmentManager = getFragmentManager();
                  PopupLoginFragment editNameDialog = new PopupLoginFragment();
-                 editNameDialog.show(fragmentManager, "fragment edit name");
+                 editNameDialog.show(fragmentManager, IdentifiersList.POPUP_LOGIN_FRAGMENT_TAG);*/
+            	// After logout redirect user to Login Activity
+               
              }
          });
 	return rootView;

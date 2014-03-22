@@ -5,6 +5,7 @@ import uk.co.senab.photoview.PhotoViewAttacher;
 import uk.co.senab.photoview.PhotoViewAttacher.OnPhotoTapListener;
 import uk.co.senab.photoview.PhotoViewAttacher.OnViewTapListener;
 import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.PixelFormat;
@@ -15,6 +16,7 @@ import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -34,6 +36,7 @@ import android.widget.TextView;
 import collegetickr.application.R;
 import collegetickr.application.Login.LoginFragment;
 import collegetickr.application.Login.RegisterFragment;
+import collegetickr.library.HUD;
 import collegetickr.library.AndroidAbstractClasses.ViewPagerAdapter;
 
 /* calling:
@@ -42,7 +45,7 @@ import collegetickr.library.AndroidAbstractClasses.ViewPagerAdapter;
  editNameDialog.show(fragmentManager, "fragment edit name");
  */
 public class ImagePreviewPopupFragment extends DialogFragment {
-
+	public static final String DEBUG_TAG = "ImagePreviewPopupFragment";
 	static Dialog dialog;
 	Bitmap bitmapImage;
 	PhotoViewAttacher mAttacher;
@@ -85,6 +88,7 @@ public class ImagePreviewPopupFragment extends DialogFragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
+		 Log.v(DEBUG_TAG, "onCreateView");
 		// super.onCreateView(inflater, container, savedInstanceState);
 		View rootView = inflater.inflate(R.layout.image_preview_popup_layout,
 				container, false);
@@ -99,8 +103,12 @@ public class ImagePreviewPopupFragment extends DialogFragment {
 		// not dissapear on zoom in)
 		// we also need to figure out how to double tap to zoom out
 
-		mAttacher.setZoomable(false);
-		mAttacher.setOnViewTapListener(new OnViewTapListener() {
+		mAttacher.setZoomable(true);
+		
+		
+		//getActivity().startService(new Intent(getActivity(),HUD.class));
+		//stopService(new Intent(this, BackgroundMusicService.class));
+		/*mAttacher.setOnViewTapListener(new OnViewTapListener() {
 
 			@Override
 			public void onViewTap(View view, float x, float y) {
@@ -126,12 +134,12 @@ public class ImagePreviewPopupFragment extends DialogFragment {
 				}
 			}
 
-		});
+		});*/
 
-		exitImagePreview = (Button) rootView
-				.findViewById(R.id.exitImagePreview);
+	/*exitImagePreview = (Button) rootView
+			.findViewById(R.id.exitImagePreview);
 
-		exitImagePreview.setVisibility(View.GONE);
+		exitImagePreview.setVisibility(View.GONE);*/
 		return rootView;
 	}
 

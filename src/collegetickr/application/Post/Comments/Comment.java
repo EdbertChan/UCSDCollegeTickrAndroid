@@ -3,7 +3,7 @@ package collegetickr.application.Post.Comments;
 
 import java.util.Date;
 
-public class Comment {
+public class Comment implements Cloneable{
 	String timePosted, content, userName, iconURL;
 	int upvote, downvote;
 	public Comment() {
@@ -12,7 +12,17 @@ public class Comment {
 		userName = "userName";
 		iconURL = "http://i981.photobucket.com/albums/ae295/wyfrost/Emoticon/Yuuko-Normal.png";
 	}
-
+	@Override
+	public Object clone() throws CloneNotSupportedException {
+		Comment cloned = (Comment)super.clone();
+		cloned.setTimePosted(this.timePosted);
+		cloned.setContent(this.content);
+		cloned.setUserName(this.userName);
+		cloned.setIconURL(this.iconURL);
+		cloned.setUpvote(this.upvote);
+		cloned.setDownvote(this.downvote);
+		return cloned;
+	}
 	public Comment(String timePosted, String content, String userName,
 			String iconURL, int upvote, int downvote) {
 

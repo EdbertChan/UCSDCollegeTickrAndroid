@@ -45,8 +45,8 @@
 
         <ImageView
             android:id="@+id/confessionImageUploadPreview"
-            android:layout_width="100sp"
-            android:layout_height="100sp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_marginLeft="10dip"
             android:src="@drawable/logo" />
 
@@ -58,7 +58,6 @@
             android:gravity="center_vertical|center_horizontal"
             android:textColor="#fff" />
     </LinearLayout>
-
     <Button
         android:id="@+id/viewConfession"
         android:layout_width="match_parent"

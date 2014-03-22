@@ -57,7 +57,7 @@ public abstract class AbstractNavDrawerActivity extends FragmentActivity {
 				getDrawerIcon(), navConf.getDrawerOpenDesc(),
 				navConf.getDrawerCloseDesc()) {
 			public void onDrawerClosed(View view) {
-				getActionBar().setTitle(mTitle);
+			//	getActionBar().setTitle(mTitle);
 				invalidateOptionsMenu();
 			}
 
@@ -79,7 +79,7 @@ public abstract class AbstractNavDrawerActivity extends FragmentActivity {
 
 			public void onDrawerOpened(View drawerView) {
 
-				getActionBar().setTitle(mDrawerTitle);
+			//	getActionBar().setTitle(mTitle);
 				invalidateOptionsMenu();
 			}
 		};
@@ -165,6 +165,7 @@ public abstract class AbstractNavDrawerActivity extends FragmentActivity {
 		mDrawerList.setItemChecked(position, true);
 
 		if (selectedItem.updateActionBarTitle()) {
+			//setTitle(selectedItem.getLabel());
 			setTitle(selectedItem.getLabel());
 		}
 

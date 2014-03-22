@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import collegetickr.application.Post.Post;
+import collegetickr.application.Post.PostFragment;
+import collegetickr.library.UpdateableFragment;
 
 import android.content.Context;
 import android.support.v4.app.Fragment;
@@ -16,55 +18,88 @@ import android.util.Log;
 //api/json logic in here because that is considered one way to adding a fragment.
 public class ViewPagerAdapter extends FragmentStatePagerAdapter {
 
+	private List<Fragment> mFragments = new ArrayList<Fragment>();
+	private int mIndex;
 
-private final List<Fragment> mFragments = new ArrayList<Fragment>();
+	public ViewPagerAdapter(FragmentManager fragmentManager) {
+		super(fragmentManager);
 
-public ViewPagerAdapter(FragmentManager fragmentManager) {
-    super(fragmentManager);
-  
-    
-}
-
-public void addFragment(Fragment fragment){
-    mFragments.add(fragment);
-    notifyDataSetChanged();
-}
-
-
-public void addListOfFragments(ArrayList<Fragment> aList){
-	mFragments.addAll(aList);
-	notifyDataSetChanged();
-}
-
-@Override
-public Fragment getItem(int position) {
-	return mFragments.get(position);
-	
-}
-
-@Override
-public int getCount() {
-    return mFragments.size();
-}
-
-/*
-public int getItemPosition(Object item) {
-	Fragment fragment = (Fragment)item;
-	
-    //String title = fragment.getTitle();
-	int position = -1;
-	for(int i = 0; i < mFragments.size(); i++){
-		if(mFragments.get(i).getId() == fragment.getId()){
-			position = i;
-			break;
-		}
 	}
 
-    if (position >= 0) {
-        return position;
-    } else {
-        return POSITION_NONE;
-    }
-}*/
+	public void addFragment(Fragment fragment) {
+
+		mFragments.add(fragment);
+		notifyDataSetChanged();
+	}
+
+	public void addListOfFragments(ArrayList<Fragment> aList) {
+		mFragments.addAll(aList);
+		notifyDataSetChanged();
+	}
+
+	public void setIndex(int index) {
+		mIndex = index;
+		notifyDataSetChanged();
+	}
+
+	public int getCurrentScrollIndex() {
+		return mIndex;
+	}
+	public void deleteFragment(int position){
+		mFragments.remove(position);
+		notifyDataSetChanged();
+	}
+	public void addFragment( int position, Fragment f){
+		mFragments.add(position, f);
+		notifyDataSetChanged();
+	}
+	@Override
+	public Fragment getItem(int position) {
+		// need to impliment copy constructors?
+		if (mFragments.get(position) instanceof PostFragment) {
+			return new PostFragment((PostFragment) (mFragments.get(position)));
+		}
+
+		return mFragments.get(position);
+
+	}
+
+	@Override
+	public int getCount() {
+		return mFragments.size();
+	}
+
+	public void replaceFragment(int position, Fragment f) {
+		mFragments.set(position, f);
+		notifyDataSetChanged();
+	}
+
+	public void addFragmentKeepSpinnerAtEnd(Fragment f) {
+		mFragments.add(mFragments.size() - 1, f);
+		notifyDataSetChanged();
+	}
+
+	public int getmIndex() {
+		return mIndex;
+	}
+
+	public void setmIndex(int mIndex) {
+		this.mIndex = mIndex;
+	}
+
+	public List<Fragment> getMfragments() {
+		return mFragments;
+	}
+
+	/*
+	 * public int getItemPosition(Object item) { Fragment fragment =
+	 * (Fragment)item;
+	 * 
+	 * //String title = fragment.getTitle(); int position = -1; for(int i = 0; i
+	 * < mFragments.size(); i++){ if(mFragments.get(i).getId() ==
+	 * fragment.getId()){ position = i; break; } }
+	 * 
+	 * if (position >= 0) { return position; } else { return POSITION_NONE; } }
+	 */
 
 }

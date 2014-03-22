@@ -35,6 +35,16 @@ public class  IdentifiersList{
 	public static final String passwordSharedPreferenceID = "Password";
 	
 	public static final int previewUploadThumbnailSize = 100;
+
+	//Confessions/Compliments identifiers
+	public static final String EDIT_TEXT_BUNDLE_TAG = "EDIT_TEXT_BUNDLE_TAG";
+	public static final String IMAGE_PREVIEW_BUNDLE_TAG = "IMAGE_PREVIEW_BUNDLE_TAG";
+	public static final String EXIT_IMAGE_PREVIEW_BUTTON_VISIBILITY_BUNDLE_TAG = "EXIT_IMAGE_PREVIEW_BUTTON_VISIBILITY_BUNDLE_TAG";
+	public static final String IMAGE_PREVIEW_BUTTON_VISIBILITY_BUNDLE_TAG = "IMAGE_PREVIEW_BUTTON_VISIBILITY_BUNDLE_TAG";
+	//ActivityResults
+	public static final int RESULT_LOAD_IMAGE = 1;
+	public static final String POPUP_LOGIN_FRAGMENT_TAG = "popupLoginFragmentTag";
+	
 	//POST tags
 	public static final String CONFESSIONSURL = "http://collegetickr.com/ucsd/confessions";
 	public static final String COMPLIMENTSURL = "http://collegetickr.com/ucsd/compliments";
@@ -45,4 +55,6 @@ public class  IdentifiersList{
 	public static final String misingComment = "You have a blank textbox!";
 	public static final String invalidPicture = "Your picture was invalid. Please reselect.";
 	public static final String notExecutingiD = "invalidParamsToBegin";
+	
+	public static boolean LOAD_ALL_AT_ONCE = true;
 }

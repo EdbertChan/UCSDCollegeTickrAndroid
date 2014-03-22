@@ -1,65 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-   
-<LinearLayout 
-      xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/complimentsLinearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-      android:id="@+id/complimentsLinearLayout"
-   >
+    android:orientation="vertical" >
 
-<EditText
-    android:gravity="top"
+    <EditText
         android:id="@+id/editTextCompliments"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:layout_weight=".50" 
-        android:hint="@string/editTextHint"
->
- 		
+        android:layout_weight=".50"
+        android:gravity="top"
+        android:hint="@string/editTextHint" >
+
         <requestFocus />
-</EditText>    
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    android:layout_weight=".25">
-    
-    <Button android:id="@+id/uploadPictureCompliment"
-    android:layout_width="0dp"
-    android:layout_weight=".5"
-    android:layout_height="wrap_content"
-    android:layout_alignParentBottom="true"
-    android:text="Upload Picture" />
-    
-    <Button android:id="@+id/submitCompliment"
-  android:layout_width="0dp"
-    android:layout_weight=".5"
-    android:layout_height="wrap_content"
-    android:layout_alignParentBottom="true"
-    android:text="Submit Compliment" />
-</LinearLayout><LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-        android:orientation="horizontal">
-    	<ImageView android:src="@drawable/logo"
-    	      android:id="@+id/complimentImageUploadPreview"
-  							android:layout_width="100dp"
-  							android:layout_height="100dp"
-  							android:layout_marginLeft="10dip"/>
-    	
-    	<Button
-    	    android:id="@+id/complimentCancelImageUpload"
-android:layout_width="25sp"
-android:layout_height="25sp"
-android:background="@drawable/round_button"
-android:gravity="center_vertical|center_horizontal"
-android:textColor="#fff" />
+    </EditText>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".25" >
+
+        <Button
+            android:id="@+id/uploadPictureCompliment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_weight=".5"
+            android:text="Upload Picture" />
+
+        <Button
+            android:id="@+id/submitCompliment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_weight=".5"
+            android:text="Submit Compliment" />
     </LinearLayout>
-    
- <Button android:id="@+id/viewCompliments"
-  android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_alignParentBottom="true"
-    android:text="View Compliments" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/complimentImageUploadPreview"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="10dip"
+            android:src="@drawable/logo" />
+
+        <Button
+            android:id="@+id/complimentCancelImageUpload"
+            android:layout_width="25sp"
+            android:layout_height="25sp"
+            android:background="@drawable/round_button"
+            android:gravity="center_vertical|center_horizontal"
+            android:textColor="#fff" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/viewCompliments"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="View Compliments" />
 
 </LinearLayout>

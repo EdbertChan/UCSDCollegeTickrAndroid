@@ -51,7 +51,7 @@ public class GetDataWebTask extends AsyncTask<String, String, String>{
 				url = new URL(uri[0]);
 			
 				urlConnection = (HttpURLConnection) url.openConnection();
-           
+           Thread.sleep(5000);
               InputStream in = new BufferedInputStream(urlConnection.getInputStream());
               response = readStream(in);
             } catch (Exception e) {

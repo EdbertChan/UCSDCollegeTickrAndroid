@@ -19,24 +19,32 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ViewFlipper;
 
-
 public class Confessions extends ComplimentsConfessionsFragmentBaseClass {
 	public Confessions(ViewPager mPager) {
 		super(mPager);
+		// TODO Auto-generated constructor stub
+	}
+	public Confessions() {
+		super();
 		// TODO Auto-generated constructor stub
 	}
 
 	int rootLayout = R.layout.confessions_layout,
 			editText = R.id.editTextConfessions,
 			uploadPictureButton = R.id.uploadPictureConfession,
-			submitButton = R.id.submitConfession, viewContent = R.id.viewConfession, uploadPicturePreviewID = R.id.confessionImageUploadPreview,  cancelUploadButtonID = R.id.confessionCancelImageUpload;
+			submitButton = R.id.submitConfession,
+			viewContent = R.id.viewConfession,
+			uploadPicturePreviewID = R.id.confessionImageUploadPreview,
+			cancelUploadButtonID = R.id.confessionCancelImageUpload;
 
 	@Override
 	protected void initializeValues() {
-		super.initializeValues(rootLayout, editText, uploadPictureButton, submitButton, appIdentifier, viewContent, uploadPicturePreviewID, cancelUploadButtonID);
-	
+		super.initializeValues(rootLayout, editText, uploadPictureButton,
+				submitButton, appIdentifier, viewContent,
+				uploadPicturePreviewID, cancelUploadButtonID);
 
 	}
-	
 
+	//since we put these in an adapter, we need to refresh the pager every time we
+	//upload/change the image
 }
