@@ -7,21 +7,22 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 import collegetickr.application.R;
+import collegetickr.application.ComplimentsConfessions.Compliments;
 import collegetickr.application.DrawerItems.AbstractNavDrawerActivity;
 import collegetickr.application.DrawerItems.NavDrawerActivityConfiguration;
 import collegetickr.application.DrawerItems.NavDrawerAdapter;
 import collegetickr.application.DrawerItems.NavDrawerItem;
 import collegetickr.application.DrawerItems.NavMenuItem;
 import collegetickr.application.DrawerItems.NavMenuSection;
-import collegetickr.application.Fragments.Compliments;
-import collegetickr.application.Login.LoginFragment;
-import collegetickr.application.Login.RegisterFragment;
+import collegetickr.application.profileLogin.LoginFragment;
 import collegetickr.application.profileLogin.ProfileFragment;
+import collegetickr.application.profileLogin.RegisterFragment;
 
 import collegetickr.library.IdentifiersList;
 
@@ -35,55 +36,26 @@ public class MainActivity extends AbstractNavDrawerActivity {
 		super.onCreate(savedInstanceState);
 		if (savedInstanceState == null) {
 			// just make a the main Fragment
-		//	getSupportFragmentManager().beginTransaction()
-			//		.replace(R.id.content_frame, new EmptyFragment()).commit();
-			
-			selectItem(0);
+			getSupportFragmentManager().beginTransaction()
+					.replace(R.id.content_frame, new ConfessionNavDrawer())
+					.commit();
+
 		}
-		
-		//onNavItemSelected(0);
-	//selectItem(0);
+		lockNavigationDrawer();
+		setupActionBar();
 	}
 
-	@Override
-	protected NavDrawerActivityConfiguration getNavDrawerConfiguration() {
-	//	setupActionBar();
-		menu = new NavDrawerItem[] {
-				NavMenuSection.create(100, "School News"),
-				NavMenuItem.create(IdentifiersList.guardianNumericID,
-						IdentifiersList.guardianID, "icon string", true,
-						this),
-				NavMenuItem.create(IdentifiersList.TVNumericID,
-						IdentifiersList.TVID, "icon string", true, this),
-				NavMenuSection.create(200, "Community"),
-				NavMenuItem.create(IdentifiersList.complimentsNumericID,
-						IdentifiersList.complimentsID, "icon string", true,
-						this),
-				NavMenuItem.create(IdentifiersList.confessionsNumericID,
-						IdentifiersList.confessionsID, " ", true, this),
-				NavMenuSection.create(300, "Account"),
-				NavMenuItem.create(IdentifiersList.loginNumericID,
-						IdentifiersList.loginID, "login icon string goes here", true,
-						this), };
-
-		NavDrawerActivityConfiguration navDrawerActivityConfiguration = new NavDrawerActivityConfiguration();
-		navDrawerActivityConfiguration.setMainLayout(R.layout.activity_main);
-		navDrawerActivityConfiguration.setDrawerLayoutId(R.id.drawer_layout);
-		navDrawerActivityConfiguration.setLeftDrawerId(R.id.left_drawer);
-		navDrawerActivityConfiguration.setNavItems(menu);
-		navDrawerActivityConfiguration
-				.setDrawerShadow(R.drawable.drawer_shadow);
-		navDrawerActivityConfiguration.setDrawerOpenDesc(R.string.drawer_open);
-		navDrawerActivityConfiguration
-				.setDrawerCloseDesc(R.string.drawer_close);
-		navDrawerActivityConfiguration.setBaseAdapter(new NavDrawerAdapter(
-				this, R.layout.navdrawer_item, menu));
-	
-		
-		return navDrawerActivityConfiguration;
+	private void lockNavigationDrawer() {
+		// For now, we lock the drawer
+		DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+		mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
+		getActionBar().setHomeButtonEnabled(false);
 	}
 	private void setupActionBar() {
         ActionBar ab = getActionBar();
+        
+        ab.setDisplayOptions(ActionBar.DISPLAY_SHOW_HOME
+            | ActionBar.DISPLAY_SHOW_TITLE);
         ab.setDisplayShowCustomEnabled(true);
         ab.setDisplayShowTitleEnabled(false);
         //ab.setIcon(R.drawable.your_left_action_icon);
@@ -97,8 +69,46 @@ public class MainActivity extends AbstractNavDrawerActivity {
 
         ab.setCustomView(v);
 
-            ab.setHomeButtonEnabled(true);
+        //    ab.setHomeButtonEnabled(true);
     }
+	@Override
+	protected NavDrawerActivityConfiguration getNavDrawerConfiguration() {
+		// setupActionBar();
+
+		menu = new NavDrawerItem[] {
+				NavMenuSection.create(100, "School News"),
+				NavMenuItem.create(IdentifiersList.guardianNumericID,
+						IdentifiersList.guardianID, "icon string", true, this),
+				NavMenuItem.create(IdentifiersList.TVNumericID,
+						IdentifiersList.TVID, "icon string", true, this),
+				NavMenuSection.create(200, "Community"),
+				NavMenuItem.create(IdentifiersList.complimentsNumericID,
+						IdentifiersList.complimentsID, "icon string", true,
+						this),
+				NavMenuItem.create(IdentifiersList.confessionsNumericID,
+						IdentifiersList.confessionsID, " ", true, this),
+				NavMenuSection.create(300, "Account"),
+				NavMenuItem.create(IdentifiersList.loginNumericID,
+						IdentifiersList.loginID, "login icon string goes here",
+						true, this), };
+
+		NavDrawerActivityConfiguration navDrawerActivityConfiguration = new NavDrawerActivityConfiguration();
+		navDrawerActivityConfiguration.setMainLayout(R.layout.activity_main);
+		navDrawerActivityConfiguration.setDrawerLayoutId(R.id.drawer_layout);
+		navDrawerActivityConfiguration.setLeftDrawerId(R.id.left_drawer);
+		navDrawerActivityConfiguration.setNavItems(menu);
+		navDrawerActivityConfiguration
+				.setDrawerShadow(R.drawable.drawer_shadow);
+		navDrawerActivityConfiguration.setDrawerOpenDesc(R.string.drawer_open);
+		navDrawerActivityConfiguration
+				.setDrawerCloseDesc(R.string.drawer_close);
+		navDrawerActivityConfiguration.setBaseAdapter(new NavDrawerAdapter(
+				this, R.layout.navdrawer_item, menu));
+
+		return navDrawerActivityConfiguration;
+
+	}
+
 	// add a function that will allow us to add in a navdrawer item to logout
 	// and change account settings?
 	// or we can add 3 nav drawers under the account settings
@@ -145,21 +155,19 @@ public class MainActivity extends AbstractNavDrawerActivity {
 		FragmentManager manager = getSupportFragmentManager();
 		boolean fragmentPopped = manager
 				.popBackStackImmediate(backStateName, 0);
+
 		// fragment not in back stack, create it.
 		if (!fragmentPopped && manager.findFragmentByTag(backStateName) == null) {
 			Log.d(DEBUG_TAG, "creating new Fragment. Wasnt in the stack");
 			FragmentTransaction ft = manager.beginTransaction();
-			// ft.replace(R.id.content_frame, fragment, fragmentTag);
 			ft.replace(R.id.content_frame, fragment, backStateName);
 			ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-			// ft.addToBackStack(backStateName);
 			ft.addToBackStack(backStateName);
 			ft.commit();
 
 		} else {
 			Log.d(DEBUG_TAG, "Already exists. Calling it from the stack.");
 		}
-		// need to update title: setTitle(fragment.get);
 
 	}
 

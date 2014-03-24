@@ -11,4 +11,9 @@
     <string name="app_not_available">Sorry, there\'s no web browser available</string>
         <string name="uploadImageText">Upload Image</string>
         <string name="changeUploadImageText">Change Image</string>
+        <string name="about">About</string>
+        <string name="add_item">Add_item</string>
+         <string name="action_search">search</string>
+          <string name="action_compose">compose</string>
+          <string name="quit">quit</string>
 </resources>

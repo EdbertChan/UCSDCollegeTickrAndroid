@@ -1,57 +1,66 @@
 package collegetickr.application.FragmentApplicationsForNavDrawer;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+import uk.co.senab.actionbarpulltorefresh.library.ActionBarPullToRefresh;
+import uk.co.senab.actionbarpulltorefresh.library.PullToRefreshLayout;
+import uk.co.senab.actionbarpulltorefresh.library.listeners.OnRefreshListener;
 import collegetickr.application.R;
-import collegetickr.application.Fragments.Compliments;
-import collegetickr.application.Fragments.Confessions;
-import collegetickr.application.Fragments.UpdatableViewPagerFragment;
-import collegetickr.application.Post.PostFragment;
-import collegetickr.application.R.id;
-import collegetickr.application.R.layout;
+import collegetickr.application.ComplimentsConfessions.Compliments;
+import collegetickr.application.ComplimentsConfessions.Confessions;
+import collegetickr.application.Post.Post;
+import collegetickr.application.ViewConfessions.ViewAllConfessions;
+
+import collegetickr.library.IdentifiersList;
+import collegetickr.library.JSONHandlerLibrary;
 import collegetickr.library.AndroidAbstractClasses.ViewPagerAdapter;
+import collegetickr.library.LazyPostAdapter.LazyPostAdapter;
+import collegetickr.library.WebPostGetAsyncTask.AsyncTaskCompleteListener;
+import collegetickr.library.WebPostGetAsyncTask.GetDataWebTask;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.ScrollView;
 
-public class ConfessionNavDrawer extends
-		UpdatableViewPagerFragment {
-	int rootLayout = R.layout.confessions_scaffold_layout;
-	int viewPager = R.id.pager;
-	String url = "";
-	SpinnerFragment sf= new SpinnerFragment();
+public class ConfessionNavDrawer extends NavDrawerContainerSwapFragmentsViaActionBarTemplate{
 
-	@Override
-	protected void initializeValues() {
-		// TODO Auto-generated method stub
-		super.initializeValues(rootLayout, viewPager, url);
-
-	}
+	public static final String MAP_ID = "MAP_ID";
+	
+	public static final String DEBUG_TAG = "ConfessionNavDrawer";
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View rootView = super.onCreateView(inflater, container,
-				savedInstanceState);
+		View rootView = super.onCreateView(inflater, container, savedInstanceState);
+		// View rootView = super.onCreateView(inflater,
+		// container,savedInstanceState);
 
-		// View rootView = inflater.inflate(rootLayout, container, false);
-		mPager = (ViewPager) rootView.findViewById(viewPager);
-
-		// initialize the adapter for whatever testing purposes. This code gets
-		// taken out later.
-		addFragment(new Confessions(mPager));
-		//addPostFragment( ViewPagerAdapter.getMfragments().size(),new PostFragment());
-		addFragment(new PostFragment());
-		addFragment(sf);
+		replaceFragment(map.get(new Integer(R.id.action_quit_compose)));
 		return rootView;
 	}
 	@Override
-	public void onTaskComplete(Object result) {
+	protected void initializeValues() {
 		// TODO Auto-generated method stub
-		//we assume this to be at the end
-		int i = mPager.getAdapter().getItemPosition(sf);
-		replaceFragment(i, new PostFragment());
-		addFragment(sf);
+		super.initializeValues(R.layout.compliments_confessions_container_layout, R.id.compliments_confessions_container_layout);
+		this.map = new HashMap<Integer, Fragment>();
+		map.put(new Integer(R.id.action_compose), new Confessions());
+		map.put(new Integer(R.id.action_quit_compose), new ViewAllConfessions());
 		
+		Log.v(DEBUG_TAG, "initalizeValues");
 	}
+
+	
 }

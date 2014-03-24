@@ -20,7 +20,7 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 
-import collegetickr.application.Fragments.Confessions;
+import collegetickr.application.ComplimentsConfessions.Confessions;
 import collegetickr.library.JSONHandlerLibrary;
 
 import android.app.Activity;
@@ -34,7 +34,7 @@ public class GetDataWebTask extends AsyncTask<String, String, String>{
 	// private Activity activity;
 	 
 	 private AsyncTaskCompleteListener callback;
-
+	 private static final String DEBUG_TAG = "GetDataWebTask";
 	 
 	 public GetDataWebTask(Fragment act) {
 		// this.activity = act;
@@ -51,7 +51,7 @@ public class GetDataWebTask extends AsyncTask<String, String, String>{
 				url = new URL(uri[0]);
 			
 				urlConnection = (HttpURLConnection) url.openConnection();
-           Thread.sleep(5000);
+          // Thread.sleep(5000);
               InputStream in = new BufferedInputStream(urlConnection.getInputStream());
               response = readStream(in);
             } catch (Exception e) {
@@ -83,7 +83,7 @@ public class GetDataWebTask extends AsyncTask<String, String, String>{
     	//once we get the stuff, we should go ahead and process all of them. we will process all of the
     	//new entries and add them to the adapater. Maybe this will be inheritable b/c of confessions and 
     	//compliments
-    	
+    	Log.v(DEBUG_TAG, "onPostExecute");
     	
         super.onPostExecute(result);
         callback.onTaskComplete(result);

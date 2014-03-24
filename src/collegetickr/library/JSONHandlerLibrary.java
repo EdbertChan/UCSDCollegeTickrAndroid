@@ -32,7 +32,8 @@ public class JSONHandlerLibrary {
 	public static final String upVotes = "cached_votes_up";
 	public static final String downVotes = "cached_votes_down";
 	public static final String weightedScore = "cached_weighted_score";
-
+	public static final String contentImage ="content_image";
+	
 	public static final int numOfPostFetch = 5;
 	public static final String APIURL = "http://www.google.com";
 
@@ -54,6 +55,7 @@ public class JSONHandlerLibrary {
 	}
 
 	public static ArrayList<Post> convertStringtoArrayListPosts(String s) {
+		
 		ArrayList<Post> listOfPostsFromJSON = new ArrayList<Post>();
 		try {
 			JSONArray jsonPosts = new JSONArray(s);

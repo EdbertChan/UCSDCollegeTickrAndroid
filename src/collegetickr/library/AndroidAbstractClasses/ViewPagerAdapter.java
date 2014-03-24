@@ -3,11 +3,6 @@ package collegetickr.library.AndroidAbstractClasses;
 import java.util.ArrayList;
 import java.util.List;
 
-import collegetickr.application.Post.Post;
-import collegetickr.application.Post.PostFragment;
-import collegetickr.library.UpdateableFragment;
-
-import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -56,9 +51,7 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
 	@Override
 	public Fragment getItem(int position) {
 		// need to impliment copy constructors?
-		if (mFragments.get(position) instanceof PostFragment) {
-			return new PostFragment((PostFragment) (mFragments.get(position)));
-		}
+		
 
 		return mFragments.get(position);
 

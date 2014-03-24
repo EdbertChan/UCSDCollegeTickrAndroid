@@ -16,6 +16,7 @@ public class  IdentifiersList{
 	public static final String jobsID = "UCSD Jobs & Internships";
 	public static final String registerID = "UCSD Register";
 
+	public static final String collegeTickrURL = "http://www.collegetickr.com";
 	
 	public static final int guardianNumericID = 101;
 	public static final int TVNumericID = 102;
@@ -26,7 +27,7 @@ public class  IdentifiersList{
 	public static final int signupNumericID = 107;
 	public static final int loginNumericID = 108;
 	public static final int registerNumericID = 109;
-	
+	public static final int POST_SQUARE_SIZE = 400;
 	public static final String SELECTIONID = "selection id"; 
 	
 	public static final String loggedInSharedPreferenceID = "LoggedIn";
@@ -41,8 +42,9 @@ public class  IdentifiersList{
 	public static final String IMAGE_PREVIEW_BUNDLE_TAG = "IMAGE_PREVIEW_BUNDLE_TAG";
 	public static final String EXIT_IMAGE_PREVIEW_BUTTON_VISIBILITY_BUNDLE_TAG = "EXIT_IMAGE_PREVIEW_BUTTON_VISIBILITY_BUNDLE_TAG";
 	public static final String IMAGE_PREVIEW_BUTTON_VISIBILITY_BUNDLE_TAG = "IMAGE_PREVIEW_BUTTON_VISIBILITY_BUNDLE_TAG";
+	public static final String LIST_OF_COMPLIMENTS_CONFESSIONS_TAG = "LIST_OF_COMPLIMENTS_CONFESSIONS_TAG";
 	//ActivityResults
-	public static final int RESULT_LOAD_IMAGE = 1;
+	public static final int RESULT_LOAD_IMAGE = "RESULT_LOAD_IMAGE".hashCode();
 	public static final String POPUP_LOGIN_FRAGMENT_TAG = "popupLoginFragmentTag";
 	
 	//POST tags
