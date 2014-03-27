@@ -5,6 +5,7 @@ import android.graphics.Bitmap.CompressFormat;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 
 public class ApplicationCompileSettings{
 	
@@ -35,7 +36,8 @@ public class ApplicationCompileSettings{
 			Context context) {
 		ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(
 				context)
-
+		.tasksProcessingOrder(QueueProcessingType.LIFO)
+		.defaultDisplayImageOptions(defaultImageOptions())
 		.discCacheExtraOptions(480, 480, CompressFormat.PNG, 75, null)
 				.memoryCacheSizePercentage(25) // default
 				.writeDebugLogs().build();

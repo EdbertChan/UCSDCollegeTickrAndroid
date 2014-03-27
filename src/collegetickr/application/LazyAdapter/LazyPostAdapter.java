@@ -8,6 +8,8 @@ import java.util.List;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.SimpleImageLoadingListener;
 import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
+import com.nostra13.universalimageloader.core.imageaware.ImageAware;
+import com.nostra13.universalimageloader.core.imageaware.ImageViewAware;
 
 import collegetickr.application.R;
 import collegetickr.application.FragmentApplicationsForNavDrawer.MainActivity;
@@ -98,11 +100,12 @@ public class LazyPostAdapter extends BaseAdapter {
 			String imageURL = IdentifiersList.collegeTickrBaseURL
 					+ listOfPosts.get(position).getContent_image();
 
-			MainActivity.imageLoader.displayImage(imageURL, holder.image,
+			ImageAware imageAware = new ImageViewAware(holder.image, false);
+
+			MainActivity.imageLoader.displayImage(imageURL, imageAware,
 					ApplicationCompileSettings.defaultImageOptions(),
 					new AnimateFirstDisplayListener());
 			holder.primaryTextView.setVisibility(View.GONE);
-
 			holder.image.setVisibility(View.VISIBLE);
 
 		} else {
@@ -148,6 +151,7 @@ public class LazyPostAdapter extends BaseAdapter {
 				Bitmap loadedImage) {
 			if (loadedImage != null) {
 				ImageView imageView = (ImageView) view;
+				
 				boolean firstDisplay = !displayedImages.contains(imageUri);
 				if (firstDisplay) {
 					FadeInBitmapDisplayer.animate(imageView, 500);
