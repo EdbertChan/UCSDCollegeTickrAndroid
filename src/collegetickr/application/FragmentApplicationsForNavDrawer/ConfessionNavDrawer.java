@@ -10,13 +10,14 @@ import uk.co.senab.actionbarpulltorefresh.library.listeners.OnRefreshListener;
 import collegetickr.application.R;
 import collegetickr.application.ComplimentsConfessions.Compliments;
 import collegetickr.application.ComplimentsConfessions.Confessions;
+import collegetickr.application.LazyAdapter.LazyPostAdapter;
 import collegetickr.application.Post.Post;
 import collegetickr.application.ViewConfessions.ViewAllConfessions;
 
 import collegetickr.library.IdentifiersList;
 import collegetickr.library.JSONHandlerLibrary;
-import collegetickr.library.AndroidAbstractClasses.ViewPagerAdapter;
-import collegetickr.library.LazyPostAdapter.LazyPostAdapter;
+import collegetickr.library.AbstractFragments.NavDrawerContainerSwapFragmentsViaActionBarTemplate;
+import collegetickr.library.ListenersAdapters.ViewPagerAdapter;
 import collegetickr.library.WebPostGetAsyncTask.AsyncTaskCompleteListener;
 import collegetickr.library.WebPostGetAsyncTask.GetDataWebTask;
 import android.os.Bundle;
@@ -45,8 +46,7 @@ public class ConfessionNavDrawer extends NavDrawerContainerSwapFragmentsViaActio
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View rootView = super.onCreateView(inflater, container, savedInstanceState);
-		// View rootView = super.onCreateView(inflater,
-		// container,savedInstanceState);
+
 
 		replaceFragment(map.get(new Integer(R.id.action_quit_compose)));
 		return rootView;

@@ -15,8 +15,33 @@ public final class R {
         public static final int slide_in_right=0x7f040003;
         public static final int slide_out_left=0x7f040004;
         public static final int slide_out_right=0x7f040005;
+        public static final int spinner_animation=0x7f040006;
     }
     public static final class attr {
+        /** <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int collapse_lines=0x7f010017;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int expandable=0x7f010015;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int expanded=0x7f010016;
         /**  A drawable to use as the background of the Header View 
          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
@@ -213,16 +238,16 @@ containing a value of this type.
         public static final int up_vote=0x7f020014;
     }
     public static final class id {
-        public static final int action_compose=0x7f050058;
+        public static final int action_compose=0x7f050057;
         public static final int action_listview=0x7f050010;
-        public static final int action_quit_compose=0x7f050057;
+        public static final int action_quit_compose=0x7f050056;
         public static final int action_scrollview=0x7f050012;
-        public static final int action_websearch=0x7f050059;
+        public static final int action_websearch=0x7f050058;
         public static final int action_webview=0x7f050011;
-        public static final int btnCancel=0x7f050055;
+        public static final int btnCancel=0x7f050054;
         public static final int btnLogin=0x7f050032;
-        public static final int btnOk=0x7f050054;
-        public static final int btnRegister=0x7f05004f;
+        public static final int btnOk=0x7f050053;
+        public static final int btnRegister=0x7f05004e;
         public static final int commentContainer=0x7f050016;
         public static final int commentContent=0x7f050015;
         public static final int commentEditText=0x7f050019;
@@ -256,16 +281,16 @@ containing a value of this type.
         public static final int inside=0x7f050004;
         public static final int left_drawer=0x7f05000f;
         public static final int linkToRegister=0x7f050040;
-        public static final int link_to_login=0x7f050050;
+        public static final int link_to_login=0x7f05004f;
         public static final int link_to_register=0x7f050033;
         public static final int listOfComments=0x7f050017;
-        public static final int listView=0x7f050056;
+        public static final int listView=0x7f050055;
         public static final int login=0x7f05003d;
         public static final int loginLink=0x7f05003f;
         public static final int loginPager=0x7f050043;
         public static final int loginRegisterLater=0x7f050041;
         public static final int login_later_link=0x7f050034;
-        public static final int mainmenu=0x7f050053;
+        public static final int mainmenu=0x7f050052;
         public static final int navmenuitem_icon=0x7f050044;
         public static final int navmenuitem_label=0x7f050045;
         public static final int navmenusection_label=0x7f050046;
@@ -274,25 +299,24 @@ containing a value of this type.
         public static final int password=0x7f05003a;
         public static final int popup_element=0x7f050042;
         public static final int popup_pager=0x7f050047;
-        public static final int postItemImage=0x7f050049;
-        public static final int postItemText=0x7f05004a;
-        public static final int postLoadingWheel=0x7f050048;
+        public static final int postItemImage=0x7f050048;
+        public static final int postItemText=0x7f050049;
         public static final int ptr_content=0x7f050006;
         public static final int ptr_layout=0x7f05000a;
         public static final int ptr_listview=0x7f05000b;
         public static final int ptr_progress=0x7f050008;
         public static final int ptr_text=0x7f050007;
-        public static final int reg_confirm_password=0x7f05004e;
-        public static final int reg_email=0x7f05004c;
-        public static final int reg_fullname=0x7f05004b;
-        public static final int reg_password=0x7f05004d;
+        public static final int reg_confirm_password=0x7f05004d;
+        public static final int reg_email=0x7f05004b;
+        public static final int reg_fullname=0x7f05004a;
+        public static final int reg_password=0x7f05004c;
         public static final int register=0x7f05003e;
-        public static final int register_later_link=0x7f050051;
+        public static final int register_later_link=0x7f050050;
         public static final int spb_interpolator_accelerate=0x7f050000;
         public static final int spb_interpolator_acceleratedecelerate=0x7f050002;
         public static final int spb_interpolator_decelerate=0x7f050003;
         public static final int spb_interpolator_linear=0x7f050001;
-        public static final int spinnerLayoutLoadingSpinner=0x7f050052;
+        public static final int spinnerLayoutLoadingSpinner=0x7f050051;
         public static final int submitCompliment=0x7f05001e;
         public static final int submitConfession=0x7f050025;
         public static final int title=0x7f050009;
@@ -371,6 +395,65 @@ containing a value of this type.
         public static final int Widget_ProgressBar_PullToRefresh=0x7f0b0002;
     }
     public static final class styleable {
+        /** Attributes that can be used with a ExpandableTextView.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #ExpandableTextView_collapse_lines collegetickr.application:collapse_lines}</code></td><td></td></tr>
+           <tr><td><code>{@link #ExpandableTextView_expandable collegetickr.application:expandable}</code></td><td></td></tr>
+           <tr><td><code>{@link #ExpandableTextView_expanded collegetickr.application:expanded}</code></td><td></td></tr>
+           </table>
+           @see #ExpandableTextView_collapse_lines
+           @see #ExpandableTextView_expandable
+           @see #ExpandableTextView_expanded
+         */
+        public static final int[] ExpandableTextView = {
+            0x7f010015, 0x7f010016, 0x7f010017
+        };
+        /**
+          <p>This symbol is the offset where the {@link collegetickr.application.R.attr#collapse_lines}
+          attribute's value can be found in the {@link #ExpandableTextView} array.
+
+
+          <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name collegetickr.application:collapse_lines
+        */
+        public static final int ExpandableTextView_collapse_lines = 2;
+        /**
+          <p>This symbol is the offset where the {@link collegetickr.application.R.attr#expandable}
+          attribute's value can be found in the {@link #ExpandableTextView} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name collegetickr.application:expandable
+        */
+        public static final int ExpandableTextView_expandable = 0;
+        /**
+          <p>This symbol is the offset where the {@link collegetickr.application.R.attr#expanded}
+          attribute's value can be found in the {@link #ExpandableTextView} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name collegetickr.application:expanded
+        */
+        public static final int ExpandableTextView_expanded = 1;
         /** Attributes that can be used with a PullToRefreshHeader.
            <p>Includes the following attributes:</p>
            <table>

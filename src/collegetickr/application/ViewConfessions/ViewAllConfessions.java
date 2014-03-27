@@ -8,12 +8,13 @@ import uk.co.senab.actionbarpulltorefresh.library.listeners.OnRefreshListener;
 import collegetickr.application.R;
 import collegetickr.application.ComplimentsConfessions.Compliments;
 import collegetickr.application.ComplimentsConfessions.Confessions;
+import collegetickr.application.FragmentApplicationsForNavDrawer.MainActivity;
+import collegetickr.application.LazyAdapter.LazyPostAdapter;
 import collegetickr.application.Post.Post;
 
 import collegetickr.library.IdentifiersList;
 import collegetickr.library.JSONHandlerLibrary;
-import collegetickr.library.AndroidAbstractClasses.ViewPagerAdapter;
-import collegetickr.library.LazyPostAdapter.LazyPostAdapter;
+import collegetickr.library.ListenersAdapters.ViewPagerAdapter;
 import collegetickr.library.WebPostGetAsyncTask.AsyncTaskCompleteListener;
 import collegetickr.library.WebPostGetAsyncTask.GetDataWebTask;
 import android.os.Bundle;
@@ -31,6 +32,7 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
+import android.widget.Toast;
 
 public class ViewAllConfessions extends Fragment implements OnRefreshListener,
 		AsyncTaskCompleteListener {
@@ -40,15 +42,16 @@ public class ViewAllConfessions extends Fragment implements OnRefreshListener,
 	private static final String DEBUG_TAG = "ConfessionNavDrawer";
 	ListView list;
 	LazyPostAdapter lazyPostAdapter;
+
 	ArrayList<Post> latestFetchArrayList = new ArrayList<Post>();
-	ProgressBar spinningWheel;
+
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setHasOptionsMenu(true);
 	}
-	
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -64,38 +67,39 @@ public class ViewAllConfessions extends Fragment implements OnRefreshListener,
 				.setup(mPullToRefreshLayout);
 
 		// begin set upadapter
-		spinningWheel = (ProgressBar) rootView
-				.findViewById(R.id.postLoadingWheel);
-		list = (ListView) rootView.findViewById(R.id.listView);
-	
-		
-		if(savedInstanceState != null && !savedInstanceState.isEmpty()){
+				list = (ListView) rootView.findViewById(R.id.listView);
+
+		if (savedInstanceState != null && !savedInstanceState.isEmpty()) {
 			Log.d(DEBUG_TAG, "Restoring from saved state available!");
-			latestFetchArrayList  = savedInstanceState.getParcelableArrayList("arraylist");  
-			  resetAdapter(latestFetchArrayList);
-		
-		}
-		else if(latestFetchArrayList != null && !latestFetchArrayList.isEmpty()){
+			latestFetchArrayList = savedInstanceState
+					.getParcelableArrayList("arraylist");
+			resetAdapter(latestFetchArrayList);
+
+		} else if (latestFetchArrayList != null
+				&& !latestFetchArrayList.isEmpty()) {
 			Log.d(DEBUG_TAG, "ArrayList has not changed. Reloading adapter");
-			  resetAdapter(latestFetchArrayList);
-		}
-		else{
+
+			resetAdapter(latestFetchArrayList);
+		} else {
 			Log.d(DEBUG_TAG, "Regetting the fragments. No state available!");
-			getNewFragments();
+
+			// getNewFragments();
 		}
 
 		return rootView;
 	}
+
 	@Override
 	public void onSaveInstanceState(Bundle savedInstanceState) {
 		Log.v(DEBUG_TAG, "onSaveInstanceState");
-	  super.onSaveInstanceState(savedInstanceState);
+		super.onSaveInstanceState(savedInstanceState);
 
-	  savedInstanceState.putParcelableArrayList(IdentifiersList.LIST_OF_COMPLIMENTS_CONFESSIONS_TAG,
+		savedInstanceState.putParcelableArrayList(
+				IdentifiersList.LIST_OF_COMPLIMENTS_CONFESSIONS_TAG,
 				latestFetchArrayList);
 
 	}
-	
+
 	private void getNewFragments() {
 
 		new GetDataWebTask(this)
@@ -104,26 +108,25 @@ public class ViewAllConfessions extends Fragment implements OnRefreshListener,
 
 	@Override
 	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-		 super.onCreateOptionsMenu(menu, inflater);
+		super.onCreateOptionsMenu(menu, inflater);
 		inflater.inflate(R.menu.confession_view_action_bar_option, menu);
-		
+
 	}
 
 	@Override
 	public void onRefreshStarted(View view) {
-		// TODO Auto-generated method stub
-
-		// grabs all the new fragmetns
 		getNewFragments();
 
 	}
-private void resetAdapter(ArrayList<Post> arrayListPosts){
-	lazyPostAdapter = new LazyPostAdapter(this.getActivity(),
-			arrayListPosts);
 
-	list.setAdapter(lazyPostAdapter);
-	lazyPostAdapter.notifyDataSetChanged();
-}
+	private void resetAdapter(ArrayList<Post> arrayListPosts) {
+		lazyPostAdapter = new LazyPostAdapter(getActivity(),
+				arrayListPosts);
+
+		list.setAdapter(lazyPostAdapter);
+		lazyPostAdapter.notifyDataSetChanged();
+	}
+
 	@Override
 	public void onTaskComplete(Object result) {
 		Log.v(DEBUG_TAG, "OnTaskComplete");
@@ -135,4 +138,6 @@ private void resetAdapter(ArrayList<Post> arrayListPosts){
 		resetAdapter(this.latestFetchArrayList);
 		mPullToRefreshLayout.setRefreshComplete();
 	}
+
+
 }

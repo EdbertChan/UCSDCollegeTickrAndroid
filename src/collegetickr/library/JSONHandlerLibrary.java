@@ -59,7 +59,7 @@ public class JSONHandlerLibrary {
 		ArrayList<Post> listOfPostsFromJSON = new ArrayList<Post>();
 		try {
 			JSONArray jsonPosts = new JSONArray(s);
-			for (int i = 0; i < jsonPosts.length(); i++) {
+			for (int i = 0; i < 20; i++) {
 				listOfPostsFromJSON.add(new Post(jsonPosts.getJSONObject(i)));
 			}
 		} catch (JSONException e) {

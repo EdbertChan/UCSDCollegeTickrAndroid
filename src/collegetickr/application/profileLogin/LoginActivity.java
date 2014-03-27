@@ -4,7 +4,7 @@ package collegetickr.application.profileLogin;
 import collegetickr.application.R;
 import collegetickr.application.FragmentApplicationsForNavDrawer.MainActivity;
 import collegetickr.application.MiscPopup.PopupLoginFragment;
-import collegetickr.library.AndroidAbstractClasses.ViewPagerAdapter;
+import collegetickr.library.ListenersAdapters.ViewPagerAdapter;
 
 import android.app.Activity;
 import android.app.Dialog;

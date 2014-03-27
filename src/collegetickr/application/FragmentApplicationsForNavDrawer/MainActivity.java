@@ -1,5 +1,7 @@
 package collegetickr.application.FragmentApplicationsForNavDrawer;
 
+import com.nostra13.universalimageloader.core.ImageLoader;
+
 import android.app.ActionBar;
 import android.content.Context;
 import android.graphics.Typeface;
@@ -24,13 +26,16 @@ import collegetickr.application.profileLogin.LoginFragment;
 import collegetickr.application.profileLogin.ProfileFragment;
 import collegetickr.application.profileLogin.RegisterFragment;
 
+import collegetickr.library.ApplicationCompileSettings;
 import collegetickr.library.IdentifiersList;
+import collegetickr.library.TestingFragments.EmptyFragment;
 
 public class MainActivity extends AbstractNavDrawerActivity {
 	static NavDrawerItem[] menu;
 	static FragmentManager manager;
 	public static final String DEBUG_TAG = "MainActivity";
-
+	public static ImageLoader imageLoader; 
+   
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -39,8 +44,10 @@ public class MainActivity extends AbstractNavDrawerActivity {
 			getSupportFragmentManager().beginTransaction()
 					.replace(R.id.content_frame, new ConfessionNavDrawer())
 					.commit();
-
+			
 		}
+		imageLoader = ImageLoader.getInstance();
+		 imageLoader.getInstance().init(ApplicationCompileSettings.defaultImageLoaderConfiguration(this));
 		lockNavigationDrawer();
 		setupActionBar();
 	}

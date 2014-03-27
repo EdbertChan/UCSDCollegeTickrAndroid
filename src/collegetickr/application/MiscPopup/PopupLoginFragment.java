@@ -21,7 +21,7 @@ import android.widget.TextView;
 import collegetickr.application.R;
 import collegetickr.application.profileLogin.LoginFragment;
 import collegetickr.application.profileLogin.RegisterFragment;
-import collegetickr.library.AndroidAbstractClasses.ViewPagerAdapter;
+import collegetickr.library.ListenersAdapters.ViewPagerAdapter;
 
 /* calling:
  *  FragmentManager fragmentManager = getFragmentManager();
