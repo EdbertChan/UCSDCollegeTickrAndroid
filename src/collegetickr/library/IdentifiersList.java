@@ -8,6 +8,7 @@ package collegetickr.library;
 
 import android.content.Context;
 import android.graphics.Bitmap.CompressFormat;
+import android.net.Uri;
 
 import collegetickr.application.R;
 
@@ -71,5 +72,8 @@ public class IdentifiersList {
 	public static final String notExecutingiD = "invalidParamsToBegin";
 
 	
+	  public static final String CONTENT_ITEM_TYPE = "collegetickr.android.cursor.item/collegetickr";
+	    public static final String CONTENT_TYPE_DIR = "collegetickr.android.cursor.dir/collegetickr";
+
 	
 }

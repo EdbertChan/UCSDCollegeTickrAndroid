@@ -9,9 +9,10 @@
     <ImageView
         android:id="@+id/postItemImage"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:scaleType="fitCenter"
+        android:gravity="center"
+          android:scaleType="centerCrop"
         android:visibility="gone" />
 
     <collegetickr.library.ExpandableTextView
@@ -23,10 +24,9 @@
         android:gravity="center"
         android:minHeight="400dp"
         android:clickable="true"
-        android:scaleType="centerCrop"
         android:textSize="20dip"
         android:typeface="monospace"
-        android:visibility="gone" />
+        />
 
 
 </LinearLayout>

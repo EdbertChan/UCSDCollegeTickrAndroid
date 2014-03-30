@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="posts_confessions_contentprovider_authority">collegetickr.application.PostsSyncAdapter.MyTodoContentProvider</string>
+    <string name="posts_confessions_accountType">postConfessionsAccount</string>
+
+    <string name="posts_confessions_sync_url">"http://www.michenux.net/?json=get_recent_posts&amp;count=1"</string>
+    <string name="posts_confessions_notification_title">New android tutorial</string>
+ 
+    
+
+</resources>

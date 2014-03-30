@@ -1,0 +1,7 @@
+<sync-adapter xmlns:android="http://schemas.android.com/apk/res/android"
+    android:accountType="com.collegetickr.application"
+    android:allowParallelSyncs="false"
+    android:contentAuthority="com.udinic.tvshows.provider"
+    android:isAlwaysSyncable="false"
+    android:supportsUploading="true"
+    android:userVisible="true" />

@@ -2,6 +2,8 @@ package collegetickr.application.FragmentApplicationsForNavDrawer;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
 
+import android.accounts.Account;
+import android.accounts.AccountManager;
 import android.app.ActionBar;
 import android.content.Context;
 import android.graphics.Typeface;
@@ -22,6 +24,7 @@ import collegetickr.application.DrawerItems.NavDrawerAdapter;
 import collegetickr.application.DrawerItems.NavDrawerItem;
 import collegetickr.application.DrawerItems.NavMenuItem;
 import collegetickr.application.DrawerItems.NavMenuSection;
+import collegetickr.application.ViewConfessions.ViewAllConfessions;
 import collegetickr.application.profileLogin.LoginFragment;
 import collegetickr.application.profileLogin.ProfileFragment;
 import collegetickr.application.profileLogin.RegisterFragment;
@@ -34,8 +37,9 @@ public class MainActivity extends AbstractNavDrawerActivity {
 	static NavDrawerItem[] menu;
 	static FragmentManager manager;
 	public static final String DEBUG_TAG = "MainActivity";
-	public static ImageLoader imageLoader; 
-   
+	public static ImageLoader imageLoader;
+	private static boolean postSyncAdapterRunning = false;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -44,12 +48,19 @@ public class MainActivity extends AbstractNavDrawerActivity {
 			getSupportFragmentManager().beginTransaction()
 					.replace(R.id.content_frame, new ConfessionNavDrawer())
 					.commit();
-			
+
 		}
 		imageLoader = ImageLoader.getInstance();
-		 imageLoader.getInstance().init(ApplicationCompileSettings.defaultImageLoaderConfiguration(this));
+		imageLoader.getInstance().init(
+				ApplicationCompileSettings
+						.defaultImageLoaderConfiguration(this));
 		lockNavigationDrawer();
 		setupActionBar();
+		
+		
+		//acount code
+	//	mAccount = CreateSyncAccount(this);
+	       
 	}
 
 	private void lockNavigationDrawer() {
@@ -58,26 +69,29 @@ public class MainActivity extends AbstractNavDrawerActivity {
 		mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
 		getActionBar().setHomeButtonEnabled(false);
 	}
+
 	private void setupActionBar() {
-        ActionBar ab = getActionBar();
-        
-        ab.setDisplayOptions(ActionBar.DISPLAY_SHOW_HOME
-            | ActionBar.DISPLAY_SHOW_TITLE);
-        ab.setDisplayShowCustomEnabled(true);
-        ab.setDisplayShowTitleEnabled(false);
-        //ab.setIcon(R.drawable.your_left_action_icon);
-        LayoutInflater inflator = (LayoutInflater) this
-                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View v = inflator.inflate(R.layout.action_bar_for_scrolling, null);
+		ActionBar ab = getActionBar();
 
-        TextView titleTV = (TextView) v.findViewById(R.id.title);
-        //Typeface font = Typeface.createFromAsset(getAssets(),"fonts/your_custom_font.ttf");
-       // titleTV.setTypeface(font);
+		ab.setDisplayOptions(ActionBar.DISPLAY_SHOW_HOME
+				| ActionBar.DISPLAY_SHOW_TITLE);
+		ab.setDisplayShowCustomEnabled(true);
+		ab.setDisplayShowTitleEnabled(false);
+		// ab.setIcon(R.drawable.your_left_action_icon);
+		LayoutInflater inflator = (LayoutInflater) this
+				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		View v = inflator.inflate(R.layout.action_bar_for_scrolling, null);
 
-        ab.setCustomView(v);
+		TextView titleTV = (TextView) v.findViewById(R.id.title);
+		// Typeface font =
+		// Typeface.createFromAsset(getAssets(),"fonts/your_custom_font.ttf");
+		// titleTV.setTypeface(font);
 
-        //    ab.setHomeButtonEnabled(true);
-    }
+		ab.setCustomView(v);
+
+		// ab.setHomeButtonEnabled(true);
+	}
+
 	@Override
 	protected NavDrawerActivityConfiguration getNavDrawerConfiguration() {
 		// setupActionBar();
@@ -176,6 +190,14 @@ public class MainActivity extends AbstractNavDrawerActivity {
 			Log.d(DEBUG_TAG, "Already exists. Calling it from the stack.");
 		}
 
+	}
+
+	public boolean isPostSyncAdapterRunning() {
+		return postSyncAdapterRunning;
+	}
+
+	public static void setPostSyncAdapterRunning(boolean syncAdapterRunning) {
+		postSyncAdapterRunning = syncAdapterRunning;
 	}
 
 }
