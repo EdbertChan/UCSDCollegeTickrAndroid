@@ -8,10 +8,10 @@ import uk.co.senab.actionbarpulltorefresh.library.ActionBarPullToRefresh;
 import uk.co.senab.actionbarpulltorefresh.library.PullToRefreshLayout;
 import uk.co.senab.actionbarpulltorefresh.library.listeners.OnRefreshListener;
 import collegetickr.application.R;
-import collegetickr.application.ComplimentsConfessions.Compliments;
-import collegetickr.application.ComplimentsConfessions.Confessions;
-import collegetickr.application.LazyAdapter.LazyPostAdapter;
+import collegetickr.application.Confessions.SubmitConfessions;
+import collegetickr.application.LazyAdapter.LazyConfessionsPostAdapter;
 import collegetickr.application.Post.Post;
+import collegetickr.application.SubmitComplimentsConfessions.Compliments;
 import collegetickr.application.ViewConfessions.ViewAllConfessions;
 
 import collegetickr.library.IdentifiersList;
@@ -52,11 +52,11 @@ public class ConfessionNavDrawer extends NavDrawerContainerSwapFragmentsViaActio
 		return rootView;
 	}
 	@Override
-	protected void initializeValues() {
+	protected void setMap() {
 		// TODO Auto-generated method stub
 		super.initializeValues(R.layout.compliments_confessions_container_layout, R.id.compliments_confessions_container_layout);
 		this.map = new HashMap<Integer, Fragment>();
-		map.put(new Integer(R.id.action_compose), new Confessions());
+		map.put(new Integer(R.id.action_compose), new SubmitConfessions());
 		map.put(new Integer(R.id.action_quit_compose), new ViewAllConfessions());
 		
 		Log.v(DEBUG_TAG, "initalizeValues");

@@ -2,7 +2,7 @@ package collegetickr.library.WebPostGetAsyncTask;
 
 import java.io.File;
 
-import collegetickr.application.ComplimentsConfessions.ComplimentsConfessionsFragmentBaseClass;
+import collegetickr.application.SubmitComplimentsConfessions.ComplimentsConfessionsFragmentBaseClass;
 import collegetickr.library.IdentifiersList;
 import android.app.Fragment;
 import android.os.AsyncTask;

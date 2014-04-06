@@ -20,7 +20,7 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 
-import collegetickr.application.ComplimentsConfessions.Confessions;
+import collegetickr.application.Confessions.SubmitConfessions;
 import collegetickr.library.JSONHandlerLibrary;
 
 import android.app.Activity;

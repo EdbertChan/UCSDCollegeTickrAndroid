@@ -7,4 +7,11 @@
         <attr name="collapse_lines" format="integer" />
     </declare-styleable>
 
+
+        <declare-styleable name="CollegesLoadFromPreferences">
+            <attr name="checkAll" format="string" />
+            <attr name="separator" format="string" />
+        </declare-styleable>
+    
+
 </resources>

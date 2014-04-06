@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ppu="http://schemas.android.com/apk/res-auto" >
+
+    
+    <PreferenceCategory android:title="My Settings" >
+       <!--  <collegetickr.application.UserPreferences.DynamicPreference
+        
+    android:key="listPref"
+    android:title="Image folders to monitor" 
+    
+    android:summary="Specify which folders should be monitored for images"
+    android:entries="@array/pref_upload_buckets_default_entries"
+    android:entryValues="@array/pref_upload_buckets_default_values"/>-->
+        <collegetickr.application.UserPreferences.CollegesLoadFromPreferences
+            android:key="listPref"
+             android:persistent="true"
+   android:entries="@array/colleges_array"
+
+    android:enabled="true"
+   android:entryValues="@array/alignment_values"
+            android:summary="Change the list of colleges to pull from"
+            android:title="Set Colleges" />
+
+    </PreferenceCategory>
+</PreferenceScreen>

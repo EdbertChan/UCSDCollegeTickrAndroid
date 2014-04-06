@@ -8,10 +8,10 @@ import uk.co.senab.actionbarpulltorefresh.library.ActionBarPullToRefresh;
 import uk.co.senab.actionbarpulltorefresh.library.PullToRefreshLayout;
 import uk.co.senab.actionbarpulltorefresh.library.listeners.OnRefreshListener;
 import collegetickr.application.R;
-import collegetickr.application.ComplimentsConfessions.Compliments;
-import collegetickr.application.ComplimentsConfessions.Confessions;
-import collegetickr.application.LazyAdapter.LazyPostAdapter;
+import collegetickr.application.Confessions.SubmitConfessions;
+import collegetickr.application.LazyAdapter.LazyConfessionsPostAdapter;
 import collegetickr.application.Post.Post;
+import collegetickr.application.SubmitComplimentsConfessions.Compliments;
 
 import collegetickr.library.IdentifiersList;
 import collegetickr.library.JSONHandlerLibrary;
@@ -47,10 +47,10 @@ public abstract class NavDrawerContainerSwapFragmentsViaActionBarTemplate
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setHasOptionsMenu(true);
-
+		setMap();
 	}
 
-	protected abstract void initializeValues();
+	protected abstract void setMap();
 
 	protected void initializeValues(int rootLayout, int containerLayoutId) {
 		this.rootLayout = rootLayout;
@@ -119,7 +119,7 @@ public abstract class NavDrawerContainerSwapFragmentsViaActionBarTemplate
 			Bundle savedInstanceState) {
 		super.onCreateView(inflater, container, savedInstanceState);
 
-		initializeValues();
+		setMap();
 		View rootView = inflater.inflate(rootLayout, container, false);
 
 		return rootView;

@@ -8,6 +8,8 @@ import android.app.ActionBar;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.preference.PreferenceFragment;
+import android.preference.PreferenceScreen;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -17,13 +19,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 import collegetickr.application.R;
-import collegetickr.application.ComplimentsConfessions.Compliments;
 import collegetickr.application.DrawerItems.AbstractNavDrawerActivity;
 import collegetickr.application.DrawerItems.NavDrawerActivityConfiguration;
 import collegetickr.application.DrawerItems.NavDrawerAdapter;
 import collegetickr.application.DrawerItems.NavDrawerItem;
 import collegetickr.application.DrawerItems.NavMenuItem;
 import collegetickr.application.DrawerItems.NavMenuSection;
+import collegetickr.application.SubmitComplimentsConfessions.Compliments;
+import collegetickr.application.UserPreferences.PreferenceListFragment.OnPreferenceAttachedListener;
+import collegetickr.application.UserPreferences.UserPreferencesFragment;
 import collegetickr.application.ViewConfessions.ViewAllConfessions;
 import collegetickr.application.profileLogin.LoginFragment;
 import collegetickr.application.profileLogin.ProfileFragment;
@@ -33,7 +37,7 @@ import collegetickr.library.ApplicationCompileSettings;
 import collegetickr.library.IdentifiersList;
 import collegetickr.library.TestingFragments.EmptyFragment;
 
-public class MainActivity extends AbstractNavDrawerActivity {
+public class MainActivity extends AbstractNavDrawerActivity implements OnPreferenceAttachedListener {
 	static NavDrawerItem[] menu;
 	static FragmentManager manager;
 	public static final String DEBUG_TAG = "MainActivity";
@@ -55,7 +59,7 @@ public class MainActivity extends AbstractNavDrawerActivity {
 				ApplicationCompileSettings
 						.defaultImageLoaderConfiguration(this));
 		lockNavigationDrawer();
-		setupActionBar();
+	setupActionBar();
 		
 		
 		//acount code
@@ -72,7 +76,7 @@ public class MainActivity extends AbstractNavDrawerActivity {
 
 	private void setupActionBar() {
 		ActionBar ab = getActionBar();
-
+		//ab.setDisplayHomeAsUpEnabled(true);
 		ab.setDisplayOptions(ActionBar.DISPLAY_SHOW_HOME
 				| ActionBar.DISPLAY_SHOW_TITLE);
 		ab.setDisplayShowCustomEnabled(true);
@@ -89,14 +93,20 @@ public class MainActivity extends AbstractNavDrawerActivity {
 
 		ab.setCustomView(v);
 
-		// ab.setHomeButtonEnabled(true);
+		ab.setHomeButtonEnabled(true);
 	}
 
 	@Override
 	protected NavDrawerActivityConfiguration getNavDrawerConfiguration() {
 		// setupActionBar();
-
 		menu = new NavDrawerItem[] {
+				NavMenuItem.create(IdentifiersList.confessionsNumericID,
+						IdentifiersList.confessionsID, " ", true, this),
+				NavMenuSection.create(300, "Settings"),
+				NavMenuItem.create(IdentifiersList.preferenceNumericID,
+						IdentifiersList.preferenceID, "preference icon string goes here",
+						true, this), };
+	/*	menu = new NavDrawerItem[] {
 				NavMenuSection.create(100, "School News"),
 				NavMenuItem.create(IdentifiersList.guardianNumericID,
 						IdentifiersList.guardianID, "icon string", true, this),
@@ -111,7 +121,7 @@ public class MainActivity extends AbstractNavDrawerActivity {
 				NavMenuSection.create(300, "Account"),
 				NavMenuItem.create(IdentifiersList.loginNumericID,
 						IdentifiersList.loginID, "login icon string goes here",
-						true, this), };
+						true, this), };*/
 
 		NavDrawerActivityConfiguration navDrawerActivityConfiguration = new NavDrawerActivityConfiguration();
 		navDrawerActivityConfiguration.setMainLayout(R.layout.activity_main);
@@ -152,6 +162,9 @@ public class MainActivity extends AbstractNavDrawerActivity {
 		case IdentifiersList.confessionsNumericID:
 			replaceFragment(new ConfessionNavDrawer());
 
+			break;
+		case IdentifiersList.preferenceNumericID:
+			replaceFragment(new UserPreferencesFragment());
 			break;
 		}
 
@@ -198,6 +211,12 @@ public class MainActivity extends AbstractNavDrawerActivity {
 
 	public static void setPostSyncAdapterRunning(boolean syncAdapterRunning) {
 		postSyncAdapterRunning = syncAdapterRunning;
+	}
+
+	@Override
+	public void onPreferenceAttached(PreferenceScreen root, int xmlId) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

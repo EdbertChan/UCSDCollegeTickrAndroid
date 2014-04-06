@@ -19,6 +19,7 @@ import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 public class IdentifiersList {
 	public static final String signupID = "Signup";
 	public static final String loginID = "Login";
+	public static final String preferenceID = "Preferences";
 	public static final String guardianID = "UCSD Guardian";
 	public static final String TVID = "Triton TV";
 	public static final String complimentsID = "UCSD Compliment";
@@ -37,6 +38,7 @@ public class IdentifiersList {
 	public static final int signupNumericID = 107;
 	public static final int loginNumericID = 108;
 	public static final int registerNumericID = 109;
+	public static final int preferenceNumericID = 110;
 	public static final int POST_SQUARE_SIZE = 400;
 	public static final String SELECTIONID = "selection id";
 

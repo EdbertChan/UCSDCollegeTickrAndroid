@@ -11,3 +11,6 @@ NavDrawer (Currently disabled. Right now, we only have ViewConfessions)
 
 Adapters and services are in the library.
 Abstract classes for the Fragments are also housed in the library.
+
+
+Report bugs: https://app.asana.com/0/11363178595742/11363178595744

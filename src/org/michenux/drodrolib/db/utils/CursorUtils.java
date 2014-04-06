@@ -5,6 +5,7 @@ import android.database.Cursor;
 public class CursorUtils {
 
 	public static String getString( String columnName, Cursor cursor ) {
+		
 		return cursor.getString(cursor.getColumnIndexOrThrow(columnName));
 	}
 

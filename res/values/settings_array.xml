@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="alignment_values">
+        <item>All</item>
+    <item >1</item>
+     <item >2</item>
+</string-array>
+    <string-array name="colleges_array">
+           <item>All</item>
+<item>UCSD</item>
+<item>UCLA</item>
+</string-array>   
+<string-array name="pref_upload_buckets_default_entries">
+		<item>All</item>
+		<item>Test1 Display</item>
+		<item>Test2 Display</item>
+	</string-array>
+	<string-array name="pref_upload_buckets_default_values">
+		<item>#ALL#</item>
+		<item>Test1 Value</item>
+		<item>Test2 Value</item>
+	</string-array>
+</resources>
+<!-- These are just default values. We will overwrite them by the user -->

@@ -4,25 +4,28 @@ import java.util.ArrayList;
 
 import org.michenux.drodrolib.db.utils.CursorUtils;
 
+
+
 import uk.co.senab.actionbarpulltorefresh.library.ActionBarPullToRefresh;
 import uk.co.senab.actionbarpulltorefresh.library.PullToRefreshLayout;
 import uk.co.senab.actionbarpulltorefresh.library.listeners.OnRefreshListener;
 import collegetickr.application.R;
-import collegetickr.application.ComplimentsConfessions.Compliments;
-import collegetickr.application.ComplimentsConfessions.Confessions;
-import collegetickr.application.ConfessionsSyncAdapter.ConfessionsSyncHelper;
-import collegetickr.application.ConfessionsSyncAdapter.PostSyncAdapter;
-import collegetickr.application.ConfessionsSyncAdapter.Database.ConfessionsContentProvider;
-import collegetickr.application.ConfessionsSyncAdapter.Database.ConfessionsTrackExpandedTable;
+import collegetickr.application.Confessions.SubmitConfessions;
+import collegetickr.application.Confessions.SyncAdapter.ConfessionsSyncHelper;
+import collegetickr.application.Confessions.SyncAdapter.ConfessionsSyncAdapter;
+import collegetickr.application.Confessions.SyncAdapter.Database.ConfessionsContentProvider;
+import collegetickr.application.Confessions.SyncAdapter.Database.ConfessionsTrackExpandedTable;
 import collegetickr.application.FragmentApplicationsForNavDrawer.MainActivity;
-import collegetickr.application.LazyAdapter.LazyPostAdapter;
+import collegetickr.application.LazyAdapter.LazyConfessionsPostAdapter;
 import collegetickr.application.Post.Post;
 import collegetickr.application.Post.PostWrapperForExpandableTextView;
+import collegetickr.application.SubmitComplimentsConfessions.Compliments;
 
 
 import collegetickr.library.ExpandableTextView;
 import collegetickr.library.IdentifiersList;
 import collegetickr.library.JSONHandlerLibrary;
+import collegetickr.library.AbstractFragments.NavDrawerContainerSwapFragmentsViaActionBarTemplate;
 import collegetickr.library.ListenersAdapters.ViewPagerAdapter;
 import collegetickr.library.WebPostGetAsyncTask.AsyncTaskCompleteListener;
 import collegetickr.library.WebPostGetAsyncTask.GetDataWebTask;
@@ -97,7 +100,7 @@ public class ViewAllConfessions extends Fragment implements OnRefreshListener,
 	private boolean mHasSync = false;
 
 	ConfessionsSyncHelper mTutorialSyncHelper;
-
+	
 	private BroadcastReceiver onFinishSyncReceiver = new BroadcastReceiver() {
 
 		@Override
@@ -122,16 +125,25 @@ public class ViewAllConfessions extends Fragment implements OnRefreshListener,
 	public void onCreate(Bundle savedInstanceState) {
 		Log.v(DEBUG_TAG, "onCreate called");
 		super.onCreate(savedInstanceState);
+		//        setRetainInstance(true);
 		setHasOptionsMenu(true);
-		mTutorialSyncHelper = new ConfessionsSyncHelper(this.getActivity()
-				.getBaseContext());
+		
 	}
 
 	@Override
 	public void onViewCreated(View view, Bundle savedInstanceState) {
 		Log.v(DEBUG_TAG, "onViewCreated called");
 		super.onViewCreated(view, savedInstanceState);
+		
+		ActionBarPullToRefresh.from(this.getActivity())
+		.allChildrenArePullable().listener(this)
+		.setup(mPullToRefreshLayout);
 
+		   if ( ((MainActivity) getActivity()).isPostSyncAdapterRunning()) {
+	         //   Log.d(YourApplication.LOG_TAG, "onViewCreated: synchronizing");
+	            updateRefresh(true);
+	        }
+	       
 	}
 
 	@Override
@@ -140,15 +152,14 @@ public class ViewAllConfessions extends Fragment implements OnRefreshListener,
 		Log.v(DEBUG_TAG, "onCreateView called");
 		super.onCreateView(inflater, container, savedInstanceState);
 		setHasOptionsMenu(true);
+		mTutorialSyncHelper = new ConfessionsSyncHelper(this.getActivity()
+				.getBaseContext());
 		View rootView = inflater.inflate(rootLayout, container, false);
 
 		// /You will setup the action bar with pull to refresh layout
 		mPullToRefreshLayout = (PullToRefreshLayout) rootView
 				.findViewById(R.id.ptr_layout);
-		ActionBarPullToRefresh.from(this.getActivity())
-				.allChildrenArePullable().listener(this)
-				.setup(mPullToRefreshLayout);
-
+	
 		// begin set upadapter
 		list = (ListView) rootView.findViewById(R.id.listView);
 		//list.setFastScrollEnabled(true);
@@ -178,6 +189,7 @@ public class ViewAllConfessions extends Fragment implements OnRefreshListener,
 	@Override
 	public void onSaveInstanceState(Bundle savedInstanceState) {
 		Log.v(DEBUG_TAG, "onSaveInstanceState");
+		
 		super.onSaveInstanceState(savedInstanceState);
 
 		/*
@@ -233,16 +245,18 @@ public class ViewAllConfessions extends Fragment implements OnRefreshListener,
 		Log.v(DEBUG_TAG, "onResume");
 		LocalBroadcastManager.getInstance(this.getActivity()).registerReceiver(
 				onFinishSyncReceiver,
-				new IntentFilter(PostSyncAdapter.SYNC_FINISHED));
+				new IntentFilter(ConfessionsSyncAdapter.SYNC_FINISHED));
 		LocalBroadcastManager.getInstance(this.getActivity()).registerReceiver(
 				onStartSyncReceiver,
-				new IntentFilter(PostSyncAdapter.SYNC_STARTED));
+				new IntentFilter(ConfessionsSyncAdapter.SYNC_STARTED));
 
 		//autosync on bootup
 		if (!mHasSync) {
 			mTutorialSyncHelper.performSync();
-		}else
-			lazyPostAdapterWithExpandablePosts.changeCursor(c);
+		}else{
+			
+		 lazyPostAdapterWithExpandablePosts.changeCursor(c);
+		}
 		//our cursor went null!
 		
 		
@@ -259,14 +273,15 @@ public class ViewAllConfessions extends Fragment implements OnRefreshListener,
 				.unregisterReceiver(onFinishSyncReceiver);
 		LocalBroadcastManager.getInstance(this.getActivity())
 				.unregisterReceiver(onStartSyncReceiver);
-		c = lazyPostAdapterWithExpandablePosts.getCursor();
-	}
+		c= lazyPostAdapterWithExpandablePosts.getCursor();
+	
+		}
 	Cursor c;
-	LazyPostAdapter lazyPostAdapterWithExpandablePosts;
+	LazyConfessionsPostAdapter lazyPostAdapterWithExpandablePosts;
 	private LoaderManager.LoaderCallbacks<Cursor> mCallbacks;
 
 	private void fillData() {
-
+		getLoaderManager().initLoader(0, null, this);
 		String[] mAdapterFromColumns = new String[] {
 				ConfessionsTrackExpandedTable.COLUMN_ID,
 				ConfessionsTrackExpandedTable.COLUMN_POST_CONTENT,
@@ -277,22 +292,11 @@ public class ViewAllConfessions extends Fragment implements OnRefreshListener,
 				R.id.postItemImage };
 
 		mCallbacks = this;
-
-		getActivity().getSupportLoaderManager().initLoader(0, null, mCallbacks);
-
-		// ContentResolver resolver = getActivity().getContentResolver();
-
-		/*
-		 * Cursor mCursor =
-		 * resolver.query(ConfessionsContentProvider.CONTENT_URI,
-		 * mAdapterFromColumns, null, null,
-		 * ConfessionsTable.COLUMN_POST_CREATED_AT + " DESC");
-		 */
-
-		this.lazyPostAdapterWithExpandablePosts = new LazyPostAdapter(this.getActivity(),
+	
+		this.lazyPostAdapterWithExpandablePosts = new LazyConfessionsPostAdapter(this.getActivity(),
 				R.layout.post_layout_item, null, mAdapterFromColumns,
 				mAdapterToViews, 0);
-		lazyPostAdapterWithExpandablePosts.notifyDataSetChanged();
+	//	lazyPostAdapterWithExpandablePosts.notifyDataSetChanged();
 
 		/*this.lazyPostAdapterWithExpandablePosts.setViewBinder(new SimpleCursorAdapter.ViewBinder() {
 			public boolean setViewValue(View view, Cursor cursor,
@@ -323,7 +327,7 @@ public class ViewAllConfessions extends Fragment implements OnRefreshListener,
 		list.setAdapter(this.lazyPostAdapterWithExpandablePosts);
 
 	}
-
+	CursorLoader cursorLoader;
 	@Override
 	public Loader<Cursor> onCreateLoader(int arg0, Bundle bundle) {
 		String[] projection = { ConfessionsTrackExpandedTable.COLUMN_ID,
@@ -332,12 +336,13 @@ public class ViewAllConfessions extends Fragment implements OnRefreshListener,
 				ConfessionsTrackExpandedTable.COLUMN_POST_CREATED_AT,
 				ConfessionsTrackExpandedTable.COLUMN_TRIMMED};
 		///this is the line?
-		CursorLoader cursorLoader = new CursorLoader(this.getActivity(),
+		 cursorLoader = new CursorLoader(this.getActivity(),
 				ConfessionsContentProvider.CONTENT_URI, projection, null, null,
 				ConfessionsTrackExpandedTable.COLUMN_ID + " DESC");
 
 		return cursorLoader;
 	}
+
 
 	@Override
 	public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
@@ -358,5 +363,7 @@ public class ViewAllConfessions extends Fragment implements OnRefreshListener,
 		Log.v(DEBUG_TAG, "onLoaderReset");
 		this.lazyPostAdapterWithExpandablePosts.changeCursor(null);
 	}
+
+
 
 }

@@ -1,7 +1,7 @@
 package collegetickr.application.Post;
 
-import collegetickr.application.ConfessionsSyncAdapter.Database.ConfessionsContentProvider;
-import collegetickr.application.ConfessionsSyncAdapter.Database.ConfessionsTrackExpandedTable;
+import collegetickr.application.Confessions.SyncAdapter.Database.ConfessionsContentProvider;
+import collegetickr.application.Confessions.SyncAdapter.Database.ConfessionsTrackExpandedTable;
 
 import android.content.ContentValues;
 import android.database.Cursor;

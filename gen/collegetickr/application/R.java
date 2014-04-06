@@ -17,7 +17,21 @@ public final class R {
         public static final int slide_out_right=0x7f040005;
         public static final int spinner_animation=0x7f040006;
     }
+    public static final class array {
+        public static final int alignment_values=0x7f0d0000;
+        public static final int colleges_array=0x7f0d0001;
+        public static final int pref_upload_buckets_default_entries=0x7f0d0002;
+        public static final int pref_upload_buckets_default_values=0x7f0d0003;
+    }
     public static final class attr {
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int checkAll=0x7f010018;
         /** <p>Must be an integer value, such as "<code>100</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -118,6 +132,14 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <p>May be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
          */
         public static final int ptrViewDelegateClass=0x7f01000a;
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int separator=0x7f010019;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
@@ -206,13 +228,19 @@ containing a value of this type.
         public static final int spb_default_reversed=0x7f0b0000;
     }
     public static final class color {
-        public static final int default_progress_bar_color=0x7f070001;
-        public static final int spb_default_color=0x7f070000;
+        public static final int default_progress_bar_color=0x7f0a0001;
+        public static final int spb_default_color=0x7f0a0000;
     }
     public static final class dimen {
-        public static final int ptr_progress_bar_stroke_width=0x7f080002;
-        public static final int spb_default_stroke_separator_length=0x7f080000;
-        public static final int spb_default_stroke_width=0x7f080001;
+        /**  Preference fragment padding, bottom 
+         */
+        public static final int preference_fragment_padding_bottom=0x7f060000;
+        /**  Preference fragment padding, sides 
+         */
+        public static final int preference_fragment_padding_side=0x7f060001;
+        public static final int ptr_progress_bar_stroke_width=0x7f060004;
+        public static final int spb_default_stroke_separator_length=0x7f060002;
+        public static final int spb_default_stroke_width=0x7f060003;
     }
     public static final class drawable {
         public static final int action_search=0x7f020000;
@@ -228,106 +256,113 @@ containing a value of this type.
         public static final int ic_drawer=0x7f02000a;
         public static final int ic_launcher=0x7f02000b;
         public static final int icon=0x7f02000c;
-        public static final int logo=0x7f02000d;
-        public static final int make_new_post=0x7f02000e;
-        public static final int post_icon=0x7f02000f;
-        public static final int repeat_bg=0x7f020010;
-        public static final int reply_comment=0x7f020011;
-        public static final int round_button=0x7f020012;
-        public static final int shape_window_dim=0x7f020013;
-        public static final int up_vote=0x7f020014;
+        public static final int loading=0x7f02000d;
+        public static final int logo=0x7f02000e;
+        public static final int make_new_post=0x7f02000f;
+        public static final int post_icon=0x7f020010;
+        public static final int repeat_bg=0x7f020011;
+        public static final int reply_comment=0x7f020012;
+        public static final int round_button=0x7f020013;
+        public static final int shape_window_dim=0x7f020014;
+        public static final int up_vote=0x7f020015;
     }
     public static final class id {
-        public static final int action_compose=0x7f060054;
-        public static final int action_listview=0x7f060010;
-        public static final int action_quit_compose=0x7f060053;
-        public static final int action_scrollview=0x7f060012;
-        public static final int action_websearch=0x7f060055;
-        public static final int action_webview=0x7f060011;
-        public static final int btnCancel=0x7f060051;
-        public static final int btnLogin=0x7f06002f;
-        public static final int btnOk=0x7f060050;
-        public static final int btnRegister=0x7f06004b;
-        public static final int commentContainer=0x7f060016;
-        public static final int commentContent=0x7f060015;
-        public static final int commentEditText=0x7f060019;
-        public static final int commentLoadingSpinner=0x7f060018;
-        public static final int commentPosterIcon=0x7f060013;
-        public static final int commentPosterName=0x7f060014;
-        public static final int commentSubmit=0x7f06001a;
-        public static final int complimentCancelImageUpload=0x7f060020;
-        public static final int complimentImageUploadPreview=0x7f06001f;
-        public static final int complimentsLinearLayout=0x7f06001b;
-        public static final int compliments_confessions_container_layout=0x7f060022;
-        public static final int confessionCancelImageUpload=0x7f060027;
-        public static final int confessionImageUploadPreview=0x7f060026;
-        public static final int confirmPassword=0x7f060039;
-        public static final int confirmPasswordLabel=0x7f060038;
-        public static final int content_frame=0x7f06000e;
-        public static final int drawer_layout=0x7f06000c;
-        public static final int editTextCompliments=0x7f06001c;
-        public static final int editTextConfessions=0x7f060023;
-        public static final int email=0x7f060036;
-        public static final int emailLabel=0x7f060035;
-        public static final int empty_button=0x7f06002a;
-        public static final int empty_layout=0x7f060029;
-        public static final int exitImagePreview=0x7f06002b;
-        public static final int footer=0x7f060032;
-        public static final int fullLoginForm=0x7f06002d;
-        public static final int fullName=0x7f060034;
-        public static final int fullRegisterForm=0x7f060033;
-        public static final int header=0x7f06002e;
-        public static final int imagePreview=0x7f06002c;
-        public static final int inside=0x7f060004;
-        public static final int left_drawer=0x7f06000f;
-        public static final int linkToRegister=0x7f06003d;
-        public static final int link_to_login=0x7f06004c;
-        public static final int link_to_register=0x7f060030;
-        public static final int listOfComments=0x7f060017;
-        public static final int listView=0x7f060052;
-        public static final int login=0x7f06003a;
-        public static final int loginLink=0x7f06003c;
-        public static final int loginPager=0x7f060040;
-        public static final int loginRegisterLater=0x7f06003e;
-        public static final int login_later_link=0x7f060031;
-        public static final int mainmenu=0x7f06004f;
-        public static final int navmenuitem_icon=0x7f060041;
-        public static final int navmenuitem_label=0x7f060042;
-        public static final int navmenusection_label=0x7f060043;
-        public static final int outside=0x7f060005;
-        public static final int pager=0x7f06000d;
-        public static final int password=0x7f060037;
-        public static final int popup_element=0x7f06003f;
-        public static final int popup_pager=0x7f060044;
-        public static final int postItemImage=0x7f060045;
-        public static final int postItemText=0x7f060046;
-        public static final int ptr_content=0x7f060006;
-        public static final int ptr_layout=0x7f06000a;
-        public static final int ptr_listview=0x7f06000b;
-        public static final int ptr_progress=0x7f060008;
-        public static final int ptr_text=0x7f060007;
-        public static final int reg_confirm_password=0x7f06004a;
-        public static final int reg_email=0x7f060048;
-        public static final int reg_fullname=0x7f060047;
-        public static final int reg_password=0x7f060049;
-        public static final int register=0x7f06003b;
-        public static final int register_later_link=0x7f06004d;
-        public static final int spb_interpolator_accelerate=0x7f060000;
-        public static final int spb_interpolator_acceleratedecelerate=0x7f060002;
-        public static final int spb_interpolator_decelerate=0x7f060003;
-        public static final int spb_interpolator_linear=0x7f060001;
-        public static final int spinnerLayoutLoadingSpinner=0x7f06004e;
-        public static final int submitCompliment=0x7f06001e;
-        public static final int submitConfession=0x7f060025;
-        public static final int title=0x7f060009;
-        public static final int uploadPictureCompliment=0x7f06001d;
-        public static final int uploadPictureConfession=0x7f060024;
-        public static final int viewCompliments=0x7f060021;
-        public static final int viewConfession=0x7f060028;
+        public static final int action_compose=0x7f090059;
+        public static final int action_listview=0x7f090010;
+        public static final int action_quit_compose=0x7f090058;
+        public static final int action_scrollview=0x7f090012;
+        public static final int action_websearch=0x7f09005a;
+        public static final int action_webview=0x7f090011;
+        public static final int back_button=0x7f090048;
+        public static final int btnCancel=0x7f090056;
+        public static final int btnLogin=0x7f09002f;
+        public static final int btnOk=0x7f090055;
+        public static final int btnRegister=0x7f09004f;
+        public static final int button_bar=0x7f090047;
+        public static final int commentContainer=0x7f090016;
+        public static final int commentContent=0x7f090015;
+        public static final int commentEditText=0x7f090019;
+        public static final int commentLoadingSpinner=0x7f090018;
+        public static final int commentPosterIcon=0x7f090013;
+        public static final int commentPosterName=0x7f090014;
+        public static final int commentSubmit=0x7f09001a;
+        public static final int complimentCancelImageUpload=0x7f090020;
+        public static final int complimentImageUploadPreview=0x7f09001f;
+        public static final int complimentsLinearLayout=0x7f09001b;
+        public static final int compliments_confessions_container_layout=0x7f090022;
+        public static final int confessionCancelImageUpload=0x7f090027;
+        public static final int confessionImageUploadPreview=0x7f090026;
+        public static final int confirmPassword=0x7f090039;
+        public static final int confirmPasswordLabel=0x7f090038;
+        public static final int content_frame=0x7f09000e;
+        public static final int drawer_layout=0x7f09000c;
+        public static final int editTextCompliments=0x7f09001c;
+        public static final int editTextConfessions=0x7f090023;
+        public static final int email=0x7f090036;
+        public static final int emailLabel=0x7f090035;
+        public static final int empty_button=0x7f09002a;
+        public static final int empty_layout=0x7f090029;
+        public static final int exitImagePreview=0x7f09002b;
+        public static final int footer=0x7f090032;
+        public static final int fullLoginForm=0x7f09002d;
+        public static final int fullName=0x7f090034;
+        public static final int fullRegisterForm=0x7f090033;
+        public static final int header=0x7f09002e;
+        public static final int imagePreview=0x7f09002c;
+        public static final int inside=0x7f090004;
+        public static final int left_drawer=0x7f09000f;
+        public static final int linkToRegister=0x7f09003d;
+        public static final int link_to_login=0x7f090050;
+        public static final int link_to_register=0x7f090030;
+        public static final int listOfComments=0x7f090017;
+        public static final int listView=0x7f090057;
+        public static final int login=0x7f09003a;
+        public static final int loginLink=0x7f09003c;
+        public static final int loginPager=0x7f090040;
+        public static final int loginRegisterLater=0x7f09003e;
+        public static final int login_later_link=0x7f090031;
+        public static final int mainmenu=0x7f090054;
+        public static final int myfragment=0x7f090052;
+        public static final int navmenuitem_icon=0x7f090041;
+        public static final int navmenuitem_label=0x7f090042;
+        public static final int navmenusection_label=0x7f090043;
+        public static final int next_button=0x7f09004a;
+        public static final int outside=0x7f090005;
+        public static final int pager=0x7f09000d;
+        public static final int password=0x7f090037;
+        public static final int popup_element=0x7f09003f;
+        public static final int popup_pager=0x7f090044;
+        public static final int postItemImage=0x7f090045;
+        public static final int postItemText=0x7f090046;
+        public static final int ptr_content=0x7f090006;
+        public static final int ptr_layout=0x7f09000a;
+        public static final int ptr_listview=0x7f09000b;
+        public static final int ptr_progress=0x7f090008;
+        public static final int ptr_text=0x7f090007;
+        public static final int reg_confirm_password=0x7f09004e;
+        public static final int reg_email=0x7f09004c;
+        public static final int reg_fullname=0x7f09004b;
+        public static final int reg_password=0x7f09004d;
+        public static final int register=0x7f09003b;
+        public static final int register_later_link=0x7f090051;
+        public static final int skip_button=0x7f090049;
+        public static final int spb_interpolator_accelerate=0x7f090000;
+        public static final int spb_interpolator_acceleratedecelerate=0x7f090002;
+        public static final int spb_interpolator_decelerate=0x7f090003;
+        public static final int spb_interpolator_linear=0x7f090001;
+        public static final int spinnerLayoutLoadingSpinner=0x7f090053;
+        public static final int submitCompliment=0x7f09001e;
+        public static final int submitConfession=0x7f090025;
+        public static final int title=0x7f090009;
+        public static final int uploadPictureCompliment=0x7f09001d;
+        public static final int uploadPictureConfession=0x7f090024;
+        public static final int viewCompliments=0x7f090021;
+        public static final int viewConfession=0x7f090028;
     }
     public static final class integer {
-        public static final int spb_default_interpolator=0x7f090001;
-        public static final int spb_default_sections_count=0x7f090000;
+        public static final int preference_fragment_scrollbarStyle=0x7f070000;
+        public static final int spb_default_interpolator=0x7f070002;
+        public static final int spb_default_sections_count=0x7f070001;
     }
     public static final class layout {
         public static final int action_bar_for_scrolling=0x7f030000;
@@ -354,41 +389,52 @@ containing a value of this type.
         public static final int navdrawer_section=0x7f030015;
         public static final int popup_fragment_with_pager_layout=0x7f030016;
         public static final int post_layout_item=0x7f030017;
-        public static final int register=0x7f030018;
-        public static final int spinner_layout=0x7f030019;
-        public static final int sync_adapter=0x7f03001a;
-        public static final int upload_image_options_layout=0x7f03001b;
-        public static final int view_all_confessions_layout=0x7f03001c;
+        public static final int preference_list_content=0x7f030018;
+        public static final int preference_list_fragment=0x7f030019;
+        public static final int preferences=0x7f03001a;
+        public static final int register=0x7f03001b;
+        public static final int settings=0x7f03001c;
+        public static final int spinner_layout=0x7f03001d;
+        public static final int sync_adapter=0x7f03001e;
+        public static final int upload_image_options_layout=0x7f03001f;
+        public static final int view_all_confessions_layout=0x7f030020;
     }
     public static final class menu {
-        public static final int base_menu=0x7f0d0000;
-        public static final int confession_compose_action_bar_option=0x7f0d0001;
-        public static final int confession_view_action_bar_option=0x7f0d0002;
-        public static final int main=0x7f0d0003;
+        public static final int base_menu=0x7f0e0000;
+        public static final int confession_compose_action_bar_option=0x7f0e0001;
+        public static final int confession_view_action_bar_option=0x7f0e0002;
+        public static final int main=0x7f0e0003;
     }
     public static final class string {
-        public static final int about=0x7f0a000d;
-        public static final int action_compose=0x7f0a0010;
-        public static final int action_search=0x7f0a000f;
-        public static final int action_websearch=0x7f0a0009;
-        public static final int add_item=0x7f0a000e;
-        public static final int app_name=0x7f0a0004;
-        public static final int app_not_available=0x7f0a000a;
-        public static final int changeUploadImageText=0x7f0a000c;
-        public static final int drawer_close=0x7f0a0008;
-        public static final int drawer_open=0x7f0a0007;
-        public static final int editTextHint=0x7f0a0005;
-        public static final int posts_confessions_accountType=0x7f0a0013;
-        public static final int posts_confessions_contentprovider_authority=0x7f0a0012;
-        public static final int posts_confessions_notification_title=0x7f0a0015;
-        public static final int posts_confessions_sync_url=0x7f0a0014;
-        public static final int pull_to_refresh_pull_label=0x7f0a0001;
-        public static final int pull_to_refresh_refreshing_label=0x7f0a0003;
-        public static final int pull_to_refresh_release_label=0x7f0a0002;
-        public static final int quit=0x7f0a0011;
-        public static final int spb_default_speed=0x7f0a0000;
-        public static final int test=0x7f0a0006;
-        public static final int uploadImageText=0x7f0a000b;
+        public static final int about=0x7f080010;
+        public static final int action_compose=0x7f080013;
+        public static final int action_search=0x7f080012;
+        public static final int action_websearch=0x7f08000c;
+        public static final int add_item=0x7f080011;
+        public static final int app_name=0x7f080007;
+        public static final int app_not_available=0x7f08000d;
+        /**   Strings for possible PreferenceActivity Back/Next buttons 
+         */
+        public static final int back_button_label=0x7f080000;
+        public static final int changeUploadImageText=0x7f08000f;
+        public static final int drawer_close=0x7f08000b;
+        public static final int drawer_open=0x7f08000a;
+        public static final int editTextHint=0x7f080008;
+        public static final int next_button_label=0x7f080001;
+        public static final int posts_confessions_accountType=0x7f080016;
+        public static final int posts_confessions_contentprovider_authority=0x7f080015;
+        public static final int posts_confessions_notification_title=0x7f080018;
+        public static final int posts_confessions_sync_url=0x7f080017;
+        public static final int pull_to_refresh_pull_label=0x7f080004;
+        public static final int pull_to_refresh_refreshing_label=0x7f080006;
+        public static final int pull_to_refresh_release_label=0x7f080005;
+        public static final int quit=0x7f080014;
+        /**  Optional button to Skip a PreferenceActivity [CHAR LIMIT=20] 
+         */
+        public static final int skip_button_label=0x7f080002;
+        public static final int spb_default_speed=0x7f080003;
+        public static final int test=0x7f080009;
+        public static final int uploadImageText=0x7f08000e;
     }
     public static final class style {
         public static final int AnimationPopup=0x7f0c0003;
@@ -399,8 +445,52 @@ containing a value of this type.
     public static final class xml {
         public static final int posts_confessions_authenticator=0x7f050000;
         public static final int posts_confessions_syncadapter=0x7f050001;
+        public static final int settings=0x7f050002;
     }
     public static final class styleable {
+        /** Attributes that can be used with a CollegesLoadFromPreferences.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #CollegesLoadFromPreferences_checkAll collegetickr.application:checkAll}</code></td><td></td></tr>
+           <tr><td><code>{@link #CollegesLoadFromPreferences_separator collegetickr.application:separator}</code></td><td></td></tr>
+           </table>
+           @see #CollegesLoadFromPreferences_checkAll
+           @see #CollegesLoadFromPreferences_separator
+         */
+        public static final int[] CollegesLoadFromPreferences = {
+            0x7f010018, 0x7f010019
+        };
+        /**
+          <p>This symbol is the offset where the {@link collegetickr.application.R.attr#checkAll}
+          attribute's value can be found in the {@link #CollegesLoadFromPreferences} array.
+
+
+          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name collegetickr.application:checkAll
+        */
+        public static final int CollegesLoadFromPreferences_checkAll = 0;
+        /**
+          <p>This symbol is the offset where the {@link collegetickr.application.R.attr#separator}
+          attribute's value can be found in the {@link #CollegesLoadFromPreferences} array.
+
+
+          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name collegetickr.application:separator
+        */
+        public static final int CollegesLoadFromPreferences_separator = 1;
         /** Attributes that can be used with a ExpandableTextView.
            <p>Includes the following attributes:</p>
            <table>
@@ -460,6 +550,33 @@ containing a value of this type.
           @attr name collegetickr.application:expanded
         */
         public static final int ExpandableTextView_expanded = 1;
+        /** Attributes that can be used with a MultiSelectListPreferenceCompat.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #MultiSelectListPreferenceCompat_android_entries android:entries}</code></td><td></td></tr>
+           <tr><td><code>{@link #MultiSelectListPreferenceCompat_android_entryValues android:entryValues}</code></td><td></td></tr>
+           </table>
+           @see #MultiSelectListPreferenceCompat_android_entries
+           @see #MultiSelectListPreferenceCompat_android_entryValues
+         */
+        public static final int[] MultiSelectListPreferenceCompat = {
+            0x010100b2, 0x010101f8
+        };
+        /**
+          <p>This symbol is the offset where the {@link android.R.attr#entries}
+          attribute's value can be found in the {@link #MultiSelectListPreferenceCompat} array.
+          @attr name android:entries
+        */
+        public static final int MultiSelectListPreferenceCompat_android_entries = 0;
+        /**
+          <p>This symbol is the offset where the {@link android.R.attr#entryValues}
+          attribute's value can be found in the {@link #MultiSelectListPreferenceCompat} array.
+          @attr name android:entryValues
+        */
+        public static final int MultiSelectListPreferenceCompat_android_entryValues = 1;
         /** Attributes that can be used with a PullToRefreshHeader.
            <p>Includes the following attributes:</p>
            <table>

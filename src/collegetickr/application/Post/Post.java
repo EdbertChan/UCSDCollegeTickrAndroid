@@ -8,8 +8,8 @@ import android.database.Cursor;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import collegetickr.application.ConfessionsSyncAdapter.Database.ConfessionsContentProvider;
-import collegetickr.application.ConfessionsSyncAdapter.Database.ConfessionsTrackExpandedTable;
+import collegetickr.application.Confessions.SyncAdapter.Database.ConfessionsContentProvider;
+import collegetickr.application.Confessions.SyncAdapter.Database.ConfessionsTrackExpandedTable;
 
 import collegetickr.library.JSONHandlerLibrary;
 
