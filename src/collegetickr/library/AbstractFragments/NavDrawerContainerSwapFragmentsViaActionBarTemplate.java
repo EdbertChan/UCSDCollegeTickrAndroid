@@ -9,7 +9,7 @@ import uk.co.senab.actionbarpulltorefresh.library.PullToRefreshLayout;
 import uk.co.senab.actionbarpulltorefresh.library.listeners.OnRefreshListener;
 import collegetickr.application.R;
 import collegetickr.application.Confessions.SubmitConfessions;
-import collegetickr.application.LazyAdapter.LazyConfessionsPostAdapter;
+import collegetickr.application.Confessions.LazyConfessionsAdapter.LazyConfessionsPostAdapter;
 import collegetickr.application.Post.Post;
 import collegetickr.application.SubmitComplimentsConfessions.Compliments;
 

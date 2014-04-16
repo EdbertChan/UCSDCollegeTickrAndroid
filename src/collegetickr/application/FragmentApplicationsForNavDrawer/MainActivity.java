@@ -6,6 +6,7 @@ import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.app.ActionBar;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
@@ -19,25 +20,25 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 import collegetickr.application.R;
-import collegetickr.application.DrawerItems.AbstractNavDrawerActivity;
-import collegetickr.application.DrawerItems.NavDrawerActivityConfiguration;
-import collegetickr.application.DrawerItems.NavDrawerAdapter;
-import collegetickr.application.DrawerItems.NavDrawerItem;
-import collegetickr.application.DrawerItems.NavMenuItem;
-import collegetickr.application.DrawerItems.NavMenuSection;
+import collegetickr.application.Confessions.ViewAllConfessions;
+import collegetickr.application.NavigationDrawer.DrawerItems.AbstractNavDrawerActivity;
+import collegetickr.application.NavigationDrawer.DrawerItems.NavDrawerActivityConfiguration;
+import collegetickr.application.NavigationDrawer.DrawerItems.NavDrawerAdapter;
+import collegetickr.application.NavigationDrawer.DrawerItems.NavDrawerItem;
+import collegetickr.application.NavigationDrawer.DrawerItems.NavMenuItem;
+import collegetickr.application.NavigationDrawer.DrawerItems.NavMenuSection;
 import collegetickr.application.SubmitComplimentsConfessions.Compliments;
 import collegetickr.application.UserPreferences.PreferenceListFragment.OnPreferenceAttachedListener;
+import collegetickr.application.UserPreferences.ListOfCollegesToPullFromActivity;
+import collegetickr.application.UserPreferences.SwipetoDeleteListFragment;
 import collegetickr.application.UserPreferences.UserPreferencesFragment;
-import collegetickr.application.ViewConfessions.ViewAllConfessions;
-import collegetickr.application.profileLogin.LoginFragment;
-import collegetickr.application.profileLogin.ProfileFragment;
-import collegetickr.application.profileLogin.RegisterFragment;
 
-import collegetickr.library.ApplicationCompileSettings;
+import collegetickr.library.ApplicationSettings;
 import collegetickr.library.IdentifiersList;
 import collegetickr.library.TestingFragments.EmptyFragment;
 
-public class MainActivity extends AbstractNavDrawerActivity implements OnPreferenceAttachedListener {
+public class MainActivity extends AbstractNavDrawerActivity implements
+		OnPreferenceAttachedListener {
 	static NavDrawerItem[] menu;
 	static FragmentManager manager;
 	public static final String DEBUG_TAG = "MainActivity";
@@ -52,19 +53,15 @@ public class MainActivity extends AbstractNavDrawerActivity implements OnPrefere
 			getSupportFragmentManager().beginTransaction()
 					.replace(R.id.content_frame, new ConfessionNavDrawer())
 					.commit();
-
 		}
 		imageLoader = ImageLoader.getInstance();
 		imageLoader.getInstance().init(
-				ApplicationCompileSettings
+				ApplicationSettings
 						.defaultImageLoaderConfiguration(this));
 		lockNavigationDrawer();
-	setupActionBar();
-		
-		
-		//acount code
-	//	mAccount = CreateSyncAccount(this);
-	       
+		setupActionBar();
+		// acount code
+		// mAccount = CreateSyncAccount(this);
 	}
 
 	private void lockNavigationDrawer() {
@@ -76,7 +73,7 @@ public class MainActivity extends AbstractNavDrawerActivity implements OnPrefere
 
 	private void setupActionBar() {
 		ActionBar ab = getActionBar();
-		//ab.setDisplayHomeAsUpEnabled(true);
+		ab.setDisplayHomeAsUpEnabled(true);
 		ab.setDisplayOptions(ActionBar.DISPLAY_SHOW_HOME
 				| ActionBar.DISPLAY_SHOW_TITLE);
 		ab.setDisplayShowCustomEnabled(true);
@@ -104,24 +101,23 @@ public class MainActivity extends AbstractNavDrawerActivity implements OnPrefere
 						IdentifiersList.confessionsID, " ", true, this),
 				NavMenuSection.create(300, "Settings"),
 				NavMenuItem.create(IdentifiersList.preferenceNumericID,
-						IdentifiersList.preferenceID, "preference icon string goes here",
-						true, this), };
-	/*	menu = new NavDrawerItem[] {
-				NavMenuSection.create(100, "School News"),
-				NavMenuItem.create(IdentifiersList.guardianNumericID,
-						IdentifiersList.guardianID, "icon string", true, this),
-				NavMenuItem.create(IdentifiersList.TVNumericID,
-						IdentifiersList.TVID, "icon string", true, this),
-				NavMenuSection.create(200, "Community"),
-				NavMenuItem.create(IdentifiersList.complimentsNumericID,
-						IdentifiersList.complimentsID, "icon string", true,
-						this),
-				NavMenuItem.create(IdentifiersList.confessionsNumericID,
-						IdentifiersList.confessionsID, " ", true, this),
-				NavMenuSection.create(300, "Account"),
-				NavMenuItem.create(IdentifiersList.loginNumericID,
-						IdentifiersList.loginID, "login icon string goes here",
-						true, this), };*/
+						IdentifiersList.preferenceID,
+						"preference icon string goes here", true, this), };
+		/*
+		 * menu = new NavDrawerItem[] { NavMenuSection.create(100,
+		 * "School News"), NavMenuItem.create(IdentifiersList.guardianNumericID,
+		 * IdentifiersList.guardianID, "icon string", true, this),
+		 * NavMenuItem.create(IdentifiersList.TVNumericID, IdentifiersList.TVID,
+		 * "icon string", true, this), NavMenuSection.create(200, "Community"),
+		 * NavMenuItem.create(IdentifiersList.complimentsNumericID,
+		 * IdentifiersList.complimentsID, "icon string", true, this),
+		 * NavMenuItem.create(IdentifiersList.confessionsNumericID,
+		 * IdentifiersList.confessionsID, " ", true, this),
+		 * NavMenuSection.create(300, "Account"),
+		 * NavMenuItem.create(IdentifiersList.loginNumericID,
+		 * IdentifiersList.loginID, "login icon string goes here", true, this),
+		 * };
+		 */
 
 		NavDrawerActivityConfiguration navDrawerActivityConfiguration = new NavDrawerActivityConfiguration();
 		navDrawerActivityConfiguration.setMainLayout(R.layout.activity_main);
@@ -152,16 +148,13 @@ public class MainActivity extends AbstractNavDrawerActivity implements OnPrefere
 		case IdentifiersList.guardianNumericID:
 			replaceFragment(new EmptyFragment());
 			break;
-		case IdentifiersList.loginNumericID:
-			replaceFragment(new ProfileFragment());
-			break;
 
 		case IdentifiersList.complimentsNumericID:
 			replaceFragment(new Compliments());
 			break;
 		case IdentifiersList.confessionsNumericID:
-			replaceFragment(new ConfessionNavDrawer());
-
+			 replaceFragment(new ConfessionNavDrawer());
+			//LocationFound();
 			break;
 		case IdentifiersList.preferenceNumericID:
 			replaceFragment(new UserPreferencesFragment());
@@ -216,7 +209,7 @@ public class MainActivity extends AbstractNavDrawerActivity implements OnPrefere
 	@Override
 	public void onPreferenceAttached(PreferenceScreen root, int xmlId) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

@@ -16,7 +16,7 @@ import org.michenux.drodrolib.network.sync.AbstractSyncHelper;
 import collegetickr.application.R;
 import collegetickr.application.Confessions.SyncAdapter.Database.ConfessionsContentProvider;
 import collegetickr.application.Confessions.SyncAdapter.Database.ConfessionsTrackExpandedTable;
-import collegetickr.library.ApplicationCompileSettings;
+import collegetickr.library.ApplicationSettings;
 
 public class ConfessionsSyncHelper {
 
@@ -25,7 +25,6 @@ public class ConfessionsSyncHelper {
     public ConfessionsSyncHelper(Context c) {
     	//createAccount();
     	createAccount("temp", ACCOUNT, ConfessionsContentProvider.AUTHORITY , true, c);
-    	
     }
 
     private Account mAccount ;

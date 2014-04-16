@@ -13,9 +13,9 @@ import java.io.InputStream;
 import collegetickr.application.R;
 
 import collegetickr.application.MiscPopup.ImagePreviewPopupFragment;
-import collegetickr.application.MiscPopup.PopupLoginFragment;
 
-import collegetickr.library.ApplicationCompileSettings;
+
+import collegetickr.library.ApplicationSettings;
 import collegetickr.library.IdentifiersList;
 import collegetickr.library.WebPostGetAsyncTask.AsyncTaskCompleteListener;
 import collegetickr.library.WebPostGetAsyncTask.GetDataWebTask;
@@ -116,7 +116,7 @@ public abstract class ComplimentsConfessionsFragmentBaseClass extends Fragment {
 
 			@Override
 			public void onClick(View arg0) {
-				if(ApplicationCompileSettings.DEBUG)
+				if(ApplicationSettings.DEBUG)
 					Log.d(DEBUG_TAG, "buttonCancelUploadImage clicked");
 				imageUploadBitmap = null;
 
@@ -131,7 +131,7 @@ public abstract class ComplimentsConfessionsFragmentBaseClass extends Fragment {
 
 			@Override
 			public void onClick(View v) {
-				if(ApplicationCompileSettings.DEBUG)
+				if(ApplicationSettings.DEBUG)
 					Log.d(DEBUG_TAG, "uploadImagePreview clicked");
 				FragmentManager fragmentManager = getFragmentManager();
 				ImagePreviewPopupFragment imagePreviewPopup = new ImagePreviewPopupFragment(
@@ -147,7 +147,7 @@ public abstract class ComplimentsConfessionsFragmentBaseClass extends Fragment {
 
 			@Override
 			public void onClick(View arg0) {
-				if(ApplicationCompileSettings.DEBUG)
+				if(ApplicationSettings.DEBUG)
 					Log.d(DEBUG_TAG, "buttonLoadImage clicked");
 				Intent i = new Intent(
 						Intent.ACTION_PICK,
@@ -206,19 +206,19 @@ public abstract class ComplimentsConfessionsFragmentBaseClass extends Fragment {
 		int column_index = cursor
 				.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
 		cursor.moveToFirst();
-		if(ApplicationCompileSettings.DEBUG)
+		if(ApplicationSettings.DEBUG)
 			Log.d(DEBUG_TAG, "getRealPath: " + cursor.getString(column_index));
 		return cursor.getString(column_index);
 	}
 
 	public void changeImagePreview(Uri selectedImageURI) {
-		if(ApplicationCompileSettings.DEBUG)
+		if(ApplicationSettings.DEBUG)
 			Log.d(DEBUG_TAG, "changeImagePreview called");
 
 		// test to see if the user has deleted the file in between?
 
 		try {
-			if(ApplicationCompileSettings.DEBUG)
+			if(ApplicationSettings.DEBUG)
 				Log.d(DEBUG_TAG, "File found. Now changing image.");
 			InputStream is = getActivity().getContentResolver()
 					.openInputStream(selectedImageURI);
@@ -231,7 +231,7 @@ public abstract class ComplimentsConfessionsFragmentBaseClass extends Fragment {
 
 				mPager.getAdapter().notifyDataSetChanged();
 			} else {
-				if(ApplicationCompileSettings.DEBUG)
+				if(ApplicationSettings.DEBUG)
 					Log.d(DEBUG_TAG, "mPager is null");
 			}
 		} catch (FileNotFoundException e) {
@@ -269,21 +269,21 @@ public abstract class ComplimentsConfessionsFragmentBaseClass extends Fragment {
 	public void onStop() {
 		super.onStop();
 		// Log.i("called onStop", "colled onStop");
-		if(ApplicationCompileSettings.DEBUG)
+		if(ApplicationSettings.DEBUG)
 			Log.v(DEBUG_TAG, "onStop()  called");
 	}
 
 	public ComplimentsConfessionsFragmentBaseClass() {
 
 		this.mPager = null;
-		if(ApplicationCompileSettings.DEBUG)
+		if(ApplicationSettings.DEBUG)
 			Log.v(DEBUG_TAG, "ComplimentsConfessionsFragmentBaseClass()  called");
 	}
 
 	public ComplimentsConfessionsFragmentBaseClass(ViewPager mPager) {
 
 		this.mPager = mPager;
-		if(ApplicationCompileSettings.DEBUG)
+		if(ApplicationSettings.DEBUG)
 		Log.d(DEBUG_TAG,
 				"ComplimentsConfessionsFragmentBaseClass(ViewPager mPager)  called");
 	}
@@ -297,7 +297,7 @@ public abstract class ComplimentsConfessionsFragmentBaseClass extends Fragment {
 		InputMethodManager imm = (InputMethodManager)this.getActivity().getSystemService(
 			      Context.INPUT_METHOD_SERVICE);
 			imm.hideSoftInputFromWindow(confessionContent.getWindowToken(), 0);
-			if(ApplicationCompileSettings.DEBUG)
+			if(ApplicationSettings.DEBUG)
 				Log.d(DEBUG_TAG, "onPause called");
 	}
 
@@ -319,18 +319,18 @@ public abstract class ComplimentsConfessionsFragmentBaseClass extends Fragment {
 		 * IdentifiersList.IMAGE_PREVIEW_BUTTON_VISIBILITY_BUNDLE_TAG,
 		 * uploadImagePreview.getVisibility());
 		 */
-		if(ApplicationCompileSettings.DEBUG)
+		if(ApplicationSettings.DEBUG)
 			Log.d(DEBUG_TAG, "onSaveInstanceState called");
 	}
 
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
-		if(ApplicationCompileSettings.DEBUG)
+		if(ApplicationSettings.DEBUG)
 			Log.d(DEBUG_TAG, "onActivityCreated called");
 		// we restore things here. This is called after onCreateView()
 		if (savedInstanceState != null) {
-			if(ApplicationCompileSettings.DEBUG)
+			if(ApplicationSettings.DEBUG)
 				Log.d(DEBUG_TAG, "restoring from previous instance");
 
 			String currentProgress = savedInstanceState

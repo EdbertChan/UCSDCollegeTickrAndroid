@@ -34,8 +34,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import collegetickr.application.R;
-import collegetickr.application.profileLogin.LoginFragment;
-import collegetickr.application.profileLogin.RegisterFragment;
+
 import collegetickr.library.HUD;
 import collegetickr.library.ListenersAdapters.ViewPagerAdapter;
 

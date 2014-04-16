@@ -16,7 +16,7 @@ public class UserPreferencesFragment extends PreferenceFragment implements
 
 		super.onCreate(icicle);
 		PreferenceManager preferenceManager = getPreferenceManager();
-		preferenceManager.setSharedPreferencesName(UserPreferenceClass.SHARED_PREFS_NAME);
+		preferenceManager.setSharedPreferencesName(UserPreferenceDefaultSettingsClass.SHARED_PREFS_NAME);
 		addPreferencesFromResource(R.xml.settings);
 
 		preferenceManager.getSharedPreferences()

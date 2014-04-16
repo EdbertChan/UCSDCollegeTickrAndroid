@@ -16,7 +16,7 @@ import collegetickr.application.FragmentApplicationsForNavDrawer.MainActivity;
 import collegetickr.application.Post.Post;
 import collegetickr.application.Post.PostWrapperForExpandableTextView;
 
-import collegetickr.library.ApplicationCompileSettings;
+import collegetickr.library.ApplicationSettings;
 import collegetickr.library.IdentifiersList;
 
 import android.accounts.Account;
@@ -100,7 +100,7 @@ public class ConfessionsSyncAdapter extends AbstractThreadedSyncAdapter {
 			ContentProviderClient provider, SyncResult syncResult) {
 
 		List<Post> remotePosts;
-		if(ApplicationCompileSettings.DEBUG)
+		if(ApplicationSettings.DEBUG)
 			Log.v(DEBUG_TAG, "onPerformSync");
 		MainActivity.setPostSyncAdapterRunning(true);
 		LocalBroadcastManager.getInstance(this.getContext()).sendBroadcast(

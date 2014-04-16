@@ -12,9 +12,6 @@ public class ConfessionsSyncService extends Service {
 	 // Object to use as a thread-safe lock
     private static final Object sSyncAdapterLock = new Object();
     private static ConfessionsSyncAdapter sSyncAdapter = null;
-
-   
-  
    
     @Override
     public void onCreate() {

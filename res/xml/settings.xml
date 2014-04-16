@@ -2,25 +2,36 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:ppu="http://schemas.android.com/apk/res-auto" >
 
-    
     <PreferenceCategory android:title="My Settings" >
-       <!--  <collegetickr.application.UserPreferences.DynamicPreference
+
+        <!--
+    <collegetickr.application.UserPreferences.DynamicPreference
         
     android:key="listPref"
     android:title="Image folders to monitor" 
     
     android:summary="Specify which folders should be monitored for images"
     android:entries="@array/pref_upload_buckets_default_entries"
-    android:entryValues="@array/pref_upload_buckets_default_values"/>-->
-        <collegetickr.application.UserPreferences.CollegesLoadFromPreferences
+    android:entryValues="@array/pref_upload_buckets_default_values"/>
+        -->
+        <PreferenceScreen
+            android:summary="Change the list of colleges to pull from"
+            android:title="@string/set_colleges_pull_from" >
+            <intent
+                android:targetClass="collegetickr.application.UserPreferences.ListOfCollegesToPullFromActivity"
+                android:targetPackage="collegetickr.application" />
+        </PreferenceScreen>
+        <!--
+<collegetickr.application.UserPreferences.CollegesLoadFromPreferences
+            android:enabled="true"
+            android:entries="@array/colleges_array"
+            android:entryValues="@array/alignment_values"
             android:key="listPref"
-             android:persistent="true"
-   android:entries="@array/colleges_array"
-
-    android:enabled="true"
-   android:entryValues="@array/alignment_values"
+            android:persistent="true"
             android:summary="Change the list of colleges to pull from"
             android:title="Set Colleges" />
-
+</PreferenceScreen>
+        -->
     </PreferenceCategory>
+
 </PreferenceScreen>

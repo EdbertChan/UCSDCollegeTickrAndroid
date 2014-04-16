@@ -1,8 +1,7 @@
 package collegetickr.library.TestingFragments;
 
 import collegetickr.application.R;
-import collegetickr.application.MiscPopup.PopupLoginFragment;
-import collegetickr.application.profileLogin.LoginActivity;
+
 import collegetickr.library.IdentifiersList;
 import android.app.ActionBar.LayoutParams;
 import android.content.Intent;

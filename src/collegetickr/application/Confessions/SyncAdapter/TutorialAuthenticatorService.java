@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.util.Log;
 
-import collegetickr.library.ApplicationCompileSettings;
+import collegetickr.library.ApplicationSettings;
 import collegetickr.library.IdentifiersList;
 
 public class TutorialAuthenticatorService extends Service {
@@ -16,7 +16,7 @@ public class TutorialAuthenticatorService extends Service {
     @Override
     public void onCreate() {
         // Create a new authenticator object
-        if (ApplicationCompileSettings.DEBUG ) {
+        if (ApplicationSettings.DEBUG ) {
             Log.v(DEBUG_TAG, "TutorialAuthenticatorService.onCreate()");
         }
         mAuthenticator = new TutorialAuthenticator(this);
@@ -27,7 +27,7 @@ public class TutorialAuthenticatorService extends Service {
      */
     @Override
     public IBinder onBind(Intent intent) {
-        if (ApplicationCompileSettings.DEBUG ) {
+        if (ApplicationSettings.DEBUG ) {
             Log.v(DEBUG_TAG, "TutorialAuthenticatorService.onBind()");
         }
         return mAuthenticator.getIBinder();

@@ -21,8 +21,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import collegetickr.application.R;
 import collegetickr.application.Confessions.SubmitConfessions;
-import collegetickr.application.profileLogin.LoginFragment;
-import collegetickr.application.profileLogin.RegisterFragment;
+
 import collegetickr.library.ListenersAdapters.ViewPagerAdapter;
 
 /* calling:
